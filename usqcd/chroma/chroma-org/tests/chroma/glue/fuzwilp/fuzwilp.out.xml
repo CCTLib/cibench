@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+
+
+<chroma>
+  <Input><chroma>
+<annotation>
+; $Id: fuzwilp.out.xml,v 3.11 2008-06-05 19:58:57 edwards Exp $
+;
+; Test input file for chroma program
+;
+</annotation>
+<Param> 
+  <InlineMeasurements>
+    <elem>
+      <!-- Fuzzed Wilson loops -->
+      <Name>FUZZED_WILSON_LOOP</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <tmax>6</tmax>
+        <j_decay>3</j_decay>
+        <n_smear>2</n_smear>
+        <sm_fact>2.5</sm_fact>
+        <BlkMax>20</BlkMax>
+        <BlkAccu>1.0e-5</BlkAccu>
+      </Param> 
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+      </NamedObject>
+    </elem>
+
+  </InlineMeasurements>
+   <nrow>4 4 4 8</nrow>
+</Param>
+<Cfg>
+ <cfg_type>WEAK_FIELD</cfg_type>
+ <cfg_file>dummy</cfg_file>
+</Cfg>
+</chroma>
+
+  </Input>
+  <ProgramInfo>
+    <code_version>
+      <chroma>3.30.0</chroma>
+      <qdp>1.27.0</qdp>
+      <basePrecision>32</basePrecision>
+    </code_version>
+    <run_date>05 Jun 08 15:57:34 EDT</run_date>
+    <Setgeom>
+      <latt_size>4 4 4 8</latt_size>
+      <logical_size>1 1 1 1</logical_size>
+      <subgrid_size>4 4 4 8</subgrid_size>
+      <total_volume>512</total_volume>
+      <subgrid_volume>512</subgrid_volume>
+    </Setgeom>
+  </ProgramInfo>
+  <RNG>
+    <Seed>
+      <elem>11</elem>
+      <elem>0</elem>
+      <elem>0</elem>
+      <elem>0</elem>
+    </Seed>
+  </RNG>
+  <Config_info><weak_field>
+</weak_field>
+
+  </Config_info>
+  <Observables>
+    <w_plaq>0.994764811229996</w_plaq>
+    <s_plaq>0.994800868133704</s_plaq>
+    <t_plaq>0.994728754326287</t_plaq>
+    <plane_01_plaq>0.994752410954485</plane_01_plaq>
+    <plane_02_plaq>0.995051669888198</plane_02_plaq>
+    <plane_12_plaq>0.994598523558428</plane_12_plaq>
+    <plane_03_plaq>0.994927932818731</plane_03_plaq>
+    <plane_13_plaq>0.994742131947229</plane_13_plaq>
+    <plane_23_plaq>0.994516198212902</plane_23_plaq>
+    <link>0.379317688096004</link>
+    <pollp>
+      <elem>
+        <re>0.96722258736069</re>
+        <im>-0.00121316528187284</im>
+      </elem>
+      <elem>
+        <re>0.967032058009257</re>
+        <im>-0.00129616999978073</im>
+      </elem>
+      <elem>
+        <re>0.96746751650547</re>
+        <im>-0.00114548282635951</im>
+      </elem>
+      <elem>
+        <re>0.879538941662759</re>
+        <im>-0.0104402848846803</im>
+      </elem>
+    </pollp>
+  </Observables>
+  <InlineObservables>
+    <elem>
+      <APE_Smeared_Wilsonloop>
+        <update_no>0</update_no>
+        <fuz_wlp1>
+          <lengthr>2</lengthr>
+          <r>0</r>
+          <wloopr>0.9963089 0.9937434 0.9912359 0.9888232</wloopr>
+          <r>1</r>
+          <wloopr>0.996013 0.9934133 0.990758 0.9882693</wloopr>
+        </fuz_wlp1>
+        <fuz_wlp2>
+          <lengthr>2</lengthr>
+          <r>0</r>
+          <s>0</s>
+          <wlooprs>0.9960624 0.9934481 0.9909388 0.9883851</wlooprs>
+          <r>1</r>
+          <s>0</s>
+          <wlooprs>0.9957994 0.9932413 0.9906388 0.98817</wlooprs>
+          <s>1</s>
+          <wlooprs>0.9956065 0.9929949 0.9902649 0.9876651</wlooprs>
+        </fuz_wlp2>
+      </APE_Smeared_Wilsonloop>
+    </elem>
+  </InlineObservables>
+</chroma>

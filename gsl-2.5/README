@@ -1,0 +1,18 @@
+GSL - GNU scientific library
+
+
+Installation:
+
+cd org (or opt)
+mkdir install
+./configure --prefix=./install
+make && make install
+
+More information about GSL installetion, please refer to the project homepage: http://www.gnu.org/software/gsl/
+
+
+After install the GSL, you can import library and run our test program:
+
+cd test-fft
+make
+./test

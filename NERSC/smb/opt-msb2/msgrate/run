@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# To correctly run the benchmark, please adjust MPI_COMPILE_FLAGS, MPI_LINK_FLAGS and mpicc path in Makefile
+
+# To enable the Profiler-Guided Optimization, please adjust CC in Makefile.
+mpirun=mpirun
+
+nodes=2
+cores=2
+msgsize=1024
+let pes=$nodes*$cores
+
+benchmark="msgrate" 
+command="$mpirun -n $pes ./msgrate -n $cores -p 1 -s $msgsize"
+
+# mpirun -n 4 ./msgrate -n 2 -p 1 -s 1024
+
+python $HOME/artifact/evaluation/speedup/scripts/optimized_runtime.py ---print_command_fortimer "$benchmark" $command > /dev/null

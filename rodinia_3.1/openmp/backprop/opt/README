@@ -1,0 +1,4 @@
+To change the number of OMP threads,
+please modify NUM_THREAD in backprop.h
+
+To run backprop: ./backprop 65536000

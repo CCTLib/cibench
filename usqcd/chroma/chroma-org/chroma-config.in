@@ -1,0 +1,256 @@
+#!/bin/sh
+
+# chroma-config
+#
+# Inspired by qdp++-config from George T. Fleming
+#
+# Tool for retrieving configuration information about the installed version
+# of QDP.
+#
+# This script was copied from the qdp++-config. The latter was
+# inspired by many similar scripts available in RedHat Linux,
+# including gnome-config, gtk-config and xmms-config.
+#
+# Be on the lookout for problems with undesirable CXXFLAGS and LDFLAGS
+# propagating through this script.  Send email to flemingg@jlab.org
+# if you find such a problem.
+
+prefix="@prefix@"
+exec_prefix="@exec_prefix@"
+exec_prefix_set=no
+
+version="@VERSION@"
+
+extra_libs="-lqdp-lapack"
+sse_dslash_enabled="@SSE_DSLASH_ENABLED@"
+cpp_dslash_enabled="@CPP_DSLASH_ENABLED@"
+qopdp_mg_enabled="@QOP_MG_ENABLED@"
+
+
+case $sse_dslash_enabled in
+yes)
+	extra_libs="$extra_libs -llevel3"
+	;;
+*)
+	;;
+esac
+
+case $cpp_dslash_enabled in 
+yes)
+	extra_libs="$extra_libs -ldslash"
+	;;
+*)
+	;;
+esac
+
+
+cg_dwf_enabled="@CG_DWF_ENABLED@"
+case $cg_dwf_enabled in
+yes)
+	extra_libs="$extra_libs -lcg-dwf"
+	;;
+*)
+	;;
+esac
+
+case $qopdp_mg_enabled in
+yes)
+	extra_libs="$extra_libs @QOP_MG_LIBS@"
+	mg_ld_flags="@QOP_MG_LDFLAGS@"
+	mg_cxx_flags="@QOP_MG_CXXFLAGS@"
+	;;
+*)
+	mg_ld_flags=""
+	mg_cxx_flags=""
+	;;
+esac
+
+chroma_cxx="@CXX@"
+chroma_cxxflags="@CXXFLAGS@ -I@includedir@ @QDPXX_CXXFLAGS@ @BAGEL_WILSON_DSLASH_CXXFLAGS@ @BAGEL_CLOVER_CXXFLAGS@ @GMP_CXXFLAGS@ @QMT_CXXFLAGS@ @QUDA_CXXFLAGS@ @QPHIX_CXXFLAGS@ "$mg_cxx_flags
+
+chroma_ldflags="@LDFLAGS@ -L@libdir@ @QDPXX_LDFLAGS@ @BAGEL_WILSON_DSLASH_LDFLAGS@ @GMP_LDFLAGS@ @BAGEL_CLOVER_LDFLAGS@ @QMT_LDFLAGS@ @QUDA_LDFLAGS@ @QPHIX_LDFLAGS@ "$mg_ld_flags
+
+chroma_libs="-lchroma "$extra_libs" @QDPXX_LIBS@ @BAGEL_WILSON_DSLASH_LIBS@ @BAGEL_CLOVER_LIBS@ @LIBS@ @GMP_LIBS@ @QUDA_LIBS@ @QMT_LIBS@ @QPHIX_LIBS@" 
+
+mdwf_enabled="@MDWF_ENABLED@"
+case ${mdwf_enabled} in
+yes) 
+	chroma_cxxflags=${chroma_cxxflags}" @MDWF_CXXFLAGS@"
+	chroma_ldflags=${chroma_ldflags}" @MDWF_LDFLAGS@"
+	chroma_libs=${chroma_libs}" @MDWF_LIBS@"
+	;;
+*)
+	;;
+esac
+
+precision="@QDPXX_PRECISION@"
+
+chroma_ranlib="@RANLIB@"
+chroma_ar="@AR@"
+
+usage()
+{
+  cat <<EOF
+Usage: chroma-config [OPTIONS]
+Options:
+  [--prefix[=DIR]]
+  [--exec-prefix[=DIR]]
+  [--version]
+  [--Nd]
+  [--Nc]
+  [--Ns]
+  [--parallel-arch]
+  [--precision]
+  [--cxx]
+  [--cxxflags]
+  [--ldflags]
+  [--libs]
+  [--ranlib]
+  [--ar]
+
+EOF
+  exit $1
+}
+
+if test $# -eq 0; then
+  usage 1 1>&2
+fi
+
+while test $# -gt 0; do
+  case "$1" in
+    -*=*) optarg=`echo "$1" | sed 's/[-_a-zA-Z0-9]*=//'` ;;
+    *)    optarg= ;;
+  esac
+
+  case $1 in
+    --prefix=*)
+      prefix=$optarg
+      if test $exec_prefix_set = no ; then
+        exec_prefix=$optarg
+      fi
+      ;;
+
+    --prefix)
+      echo_prefix=yes
+      ;;
+
+    --exec-prefix=*)
+      exec_prefix=$optarg
+      exec_prefix_set=yes
+      ;;
+
+    --exec-prefix)
+      echo_exec_prefix=yes
+      ;;
+
+    --version)
+      echo $version
+      ;;
+
+    --Nd)
+      echo @QDPXX_ND@
+      ;;
+
+    --Nc)
+      echo @QDPXX_NC@
+      ;;
+
+    --Ns)
+      echo @QDPXX_NS@
+      ;;
+
+    --parallel-arch)
+      echo @QDPXX_PARALLEL_ARCH@
+      ;;
+
+    --cxx)
+      echo $chroma_cxx
+      ;;
+
+    --cxxflags)
+      echo_cxxflags=yes
+      ;;
+
+    --ldflags)
+      echo_ldflags=yes
+      ;;
+
+    --libs)
+      echo_libs=yes
+      ;;
+
+    --precision)
+	  echo ${precision}
+      ;;
+    --layout)
+       echo ${layout}
+       ;;
+    --ranlib)
+       echo ${chroma_ranlib}
+       ;;
+    --ar)
+       echo ${chroma_ar}
+       ;;
+    *)
+      usage 1 1>&2
+      ;;
+
+  esac
+  shift
+done
+
+if test "X${echo_prefix}X" = "XyesX" ; then
+  echo $prefix
+fi
+
+if test "X${echo_exec_prefix}X" = "XyesX" ; then
+  echo $exec_prefix
+fi
+
+if test "X${echo_cxxflags}X" = "XyesX" ; then
+  output_cxxflags=
+  for i in $chroma_cxxflags ; do
+    case $i in
+      -I/usr/include) ;;
+      -g) ;;
+#     -O*) ;;
+#     -W*) ;;
+      *)
+        case " $output_cxxflags " in
+          *\ $i\ *) ;;                             # already there, skip it
+          *) output_cxxflags="$output_cxxflags $i" # add it to output
+        esac
+    esac
+  done
+  echo $output_cxxflags
+fi
+
+if test "X${echo_ldflags}X" = "XyesX" ; then
+  output_ldflags=
+  for i in $chroma_ldflags ; do
+    if test "X${i}X" != "X-I/usr/libX" ; then
+      case " $output_ldflags " in
+        *\ $i\ *) ;;                               # already there, skip it
+        *) output_ldflags="$output_ldflags $i"     # add it to output
+      esac
+    fi
+  done
+  echo $output_ldflags
+fi
+
+# Straight out any possible duplicates, but be careful to
+# get `-lfoo -lbar -lbaz' for `-lfoo -lbaz -lbar -lbaz'
+# NONONO!!! DON'T DO THIS. SOMETIMES you need a -l twice
+if test "X${echo_libs}X" = "XyesX" ; then
+  rev_libs=
+  for i in $chroma_libs ; do
+    rev_libs="$i $rev_libs"
+  done
+  output_libs=
+  for i in $rev_libs ; do
+    case " $output_libs " in
+      *) output_libs="$i $output_libs" ;;  # add it to output in reverse order
+    esac
+  done
+  echo $output_libs
+fi

@@ -1,0 +1,21 @@
+timer ticks over every 1000 ns
+running commands in speccmds.cmd 1 times
+runs started at 1539558934, 757562000, Sun Oct 14 19:15:34 2018
+run 1 started at 1539558934, 757602000, Sun Oct 14 19:15:34 2018
+child started: 0, 1539558934, 757613000, pid=40142, 'run-spec-experiment.py "../run_base_ref_reuse.0005/bzip2_base.reuse input.source 280"'
+child finished: 0, 1539558934, 868149000, sec=0, nsec=110536000, pid=40142, rc=256
+child started: 0, 1539558934, 868155000, pid=40143, 'run-spec-experiment.py "../run_base_ref_reuse.0005/bzip2_base.reuse chicken.jpg 30"'
+child finished: 0, 1539558935, 7810000, sec=0, nsec=139655000, pid=40143, rc=256
+child started: 0, 1539558935, 7819000, pid=40144, 'run-spec-experiment.py "../run_base_ref_reuse.0005/bzip2_base.reuse liberty.jpg 30"'
+child finished: 0, 1539558935, 142901000, sec=0, nsec=135082000, pid=40144, rc=256
+child started: 0, 1539558935, 142908000, pid=40167, 'run-spec-experiment.py "../run_base_ref_reuse.0005/bzip2_base.reuse input.program 280"'
+child finished: 0, 1539558935, 282637000, sec=0, nsec=139729000, pid=40167, rc=256
+child started: 0, 1539558935, 282648000, pid=40242, 'run-spec-experiment.py "../run_base_ref_reuse.0005/bzip2_base.reuse text.html 280"'
+child finished: 0, 1539558935, 417728000, sec=0, nsec=135080000, pid=40242, rc=256
+child started: 0, 1539558935, 417737000, pid=40350, 'run-spec-experiment.py "../run_base_ref_reuse.0005/bzip2_base.reuse input.combined 200"'
+child finished: 0, 1539558935, 544201000, sec=0, nsec=126464000, pid=40350, rc=256
+run 1 finished at: 1539558935, 544241000, Sun Oct 14 19:15:35 2018
+run 1 elapsed time: 0, 786639000, 0.786639000
+runs finished at 1539558935, 544261000, Sun Oct 14 19:15:35 2018
+runs elapsed time: 0, 786699000, 0.786699000
+error: a total of 6 children finished with errors

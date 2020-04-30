@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/qwang/working/witch/script/run-spec-experiment.py", line 356, in <module>
+    main()
+  File "/home/qwang/working/witch/script/run-spec-experiment.py", line 316, in main
+    hpcrun_file = hpcrun(args, std_input, exe_base, folder_name, 5*(10**6))
+NameError: name 'hpcrun' is not defined

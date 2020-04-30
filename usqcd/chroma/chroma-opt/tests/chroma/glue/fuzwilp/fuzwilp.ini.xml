@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<chroma>
+<annotation>
+; $Id: fuzwilp.ini.xml,v 3.2 2006-09-21 19:45:55 edwards Exp $
+;
+; Test input file for chroma program
+;
+</annotation>
+<Param> 
+  <InlineMeasurements>
+    <elem>
+      <!-- Fuzzed Wilson loops -->
+      <Name>FUZZED_WILSON_LOOP</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <tmax>6</tmax>
+        <j_decay>3</j_decay>
+        <n_smear>2</n_smear>
+        <sm_fact>2.5</sm_fact>
+        <BlkMax>20</BlkMax>
+        <BlkAccu>1.0e-5</BlkAccu>
+      </Param> 
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+      </NamedObject>
+    </elem>
+
+  </InlineMeasurements>
+   <nrow>4 4 4 8</nrow>
+</Param>
+<Cfg>
+ <cfg_type>WEAK_FIELD</cfg_type>
+ <cfg_file>dummy</cfg_file>
+</Cfg>
+</chroma>
+
+

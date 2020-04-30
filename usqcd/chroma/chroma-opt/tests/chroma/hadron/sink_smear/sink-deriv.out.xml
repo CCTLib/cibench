@@ -1,0 +1,5777 @@
+<?xml version="1.0"?>
+
+
+<chroma>
+  <Input><chroma>
+<annotation>
+Sink smear a prop
+</annotation>
+<Param> 
+  <InlineMeasurements>
+
+    <elem>
+      <Name>MAKE_SOURCE</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <source_id>sh_source_0</source_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>PROPAGATOR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>10</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <numRetries>1</numRetries>
+        <FermionAction>
+         <FermAct>WILSON</FermAct>
+         <Kappa>0.11</Kappa>
+         <AnisoParam>
+           <anisoP>false</anisoP>
+           <t_dir>3</t_dir>
+           <xi_0>1.0</xi_0>
+           <nu>1.0</nu>
+         </AnisoParam>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <source_id>sh_source_0</source_id>
+        <prop_id>sh_prop_0</prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+       PionxNabla_T1
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>3</deriv_dir>
+            <deriv_length>2</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+       A0xNabla_T1
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>SHELL_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>A0xNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        a0_2 x Nabla_T1
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>A0xNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Rho x Nabla_A1
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>RHOxNABLA_A1-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Rho x Nabla_T1
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>RHOxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Rho x Nabla_T2
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>RHOxNABLA_T2-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        A1 x Nabla_A1
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>A1xNABLA_A1-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        A1 x Nabla_T2
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>A1xNABLA_T2-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        A1 x Nabla_E
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>A1xNABLA_E-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        B1 x Nabla_T1
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>B1xNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        A0_2 x D_T2
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>A0_2xD_T2-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        A1 x D_A2
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>A1xD_A2-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        A1 x D_E
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>A1xD_E-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        A1 x D_T1
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>A1xD_T1-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        A1 x D_T2
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>A1xD_T2-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        B1 x D_A2
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>B1xD_A2-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        B1 x D_E
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>B1xD_E-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        B1 x D_T1
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>B1xD_T1-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        B1 x D_T2
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>B1xD_T2-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Rho x D_A2
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>RHOxD_A2-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        B1 x D_T1
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>B1xD_T1-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        B1 x D_T2
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>B1xD_T2-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Pion x D_T2
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version> 
+            <DisplacementType>PIONxD_T2-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Pion x B_T1
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxD_T2-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Rho x B_T1
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>RHOxB_T1-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        RHO x B_T2
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>RHOxB_T2-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        A1 x B_A1
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>A1xB_A1-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        A1 x B_T1
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>A1xB_T1-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        A1 x B_T2
+      </annotation>
+
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>A1xB_T2-DERIV</DisplacementType>
+            <deriv_dir>0</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>sh_prop_0</prop_id>
+        <smeared_prop_id>sink_tmp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <annotation>
+        Erase the object
+      </annotation>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>sink_tmp</object_id>
+      </NamedObject>
+    </elem>
+
+  </InlineMeasurements>
+   <nrow>4 4 4 8</nrow>
+</Param>
+<Cfg>
+ <cfg_type>DISORDERED</cfg_type>
+ <cfg_file>dummy</cfg_file>
+</Cfg>
+</chroma>
+
+  </Input>
+  <ProgramInfo>
+    <code_version>
+      <chroma>3.31.1</chroma>
+      <qdp>1.29.0</qdp>
+      <basePrecision>64</basePrecision>
+    </code_version>
+    <run_date>11 Nov 08 16:48:50 EST</run_date>
+    <Setgeom>
+      <latt_size>4 4 4 8</latt_size>
+      <logical_size>1 1 1 1</logical_size>
+      <subgrid_size>4 4 4 8</subgrid_size>
+      <total_volume>512</total_volume>
+      <subgrid_volume>512</subgrid_volume>
+    </Setgeom>
+  </ProgramInfo>
+  <RNG>
+    <Seed>
+      <elem>11</elem>
+      <elem>0</elem>
+      <elem>0</elem>
+      <elem>0</elem>
+    </Seed>
+  </RNG>
+  <Config_info><disordered>
+</disordered>
+
+  </Config_info>
+  <Observables>
+    <w_plaq>-0.00355243237663191</w_plaq>
+    <s_plaq>-0.00700866312757174</s_plaq>
+    <t_plaq>-9.62016256920846e-05</t_plaq>
+    <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+    <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+    <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+    <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+    <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+    <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+    <link>0.114362166133513</link>
+    <pollp>
+      <elem>
+        <re>-0.0142489311335197</re>
+        <im>-0.00292557266591678</im>
+      </elem>
+      <elem>
+        <re>0.0112266081244055</re>
+        <im>0.00350011716788087</im>
+      </elem>
+      <elem>
+        <re>0.0229389128952004</re>
+        <im>0.0300484262411223</im>
+      </elem>
+      <elem>
+        <re>-0.021398693853961</re>
+        <im>-0.0267861766502649</im>
+      </elem>
+    </pollp>
+  </Observables>
+  <InlineObservables>
+    <elem>
+      <make_source>
+        <update_no>0</update_no>
+        <ProgramInfo>
+          <code_version>
+            <chroma>3.31.1</chroma>
+            <qdp>1.29.0</qdp>
+            <basePrecision>64</basePrecision>
+          </code_version>
+          <run_date>11 Nov 08 16:48:50 EST</run_date>
+          <Setgeom>
+            <latt_size>4 4 4 8</latt_size>
+            <logical_size>1 1 1 1</logical_size>
+            <subgrid_size>4 4 4 8</subgrid_size>
+            <total_volume>512</total_volume>
+            <subgrid_volume>512</subgrid_volume>
+          </Setgeom>
+        </ProgramInfo>
+        <RNG>
+          <Seed>
+            <elem>3787</elem>
+            <elem>2897</elem>
+            <elem>4074</elem>
+            <elem>1279</elem>
+          </Seed>
+        </RNG>
+        <Input>
+          <Param>
+            <version>6</version><Source>
+      <version>2</version>
+      <SourceType>SHELL_SOURCE</SourceType>
+      <j_decay>3</j_decay>
+      <t_srce>0 0 0 0</t_srce>
+      <SmearingParam>
+        <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+        <wvf_param>2.0</wvf_param>
+        <wvfIntPar>5</wvfIntPar>
+        <no_smear_dir>3</no_smear_dir>
+      </SmearingParam>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+        <deriv_dir>1</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+      <LinkSmearing>
+        <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+        <link_smear_fact>2.5</link_smear_fact>
+        <link_smear_num>1</link_smear_num>
+        <no_smear_dir>3</no_smear_dir>
+      </LinkSmearing>
+    </Source>
+
+            <j_decay>3</j_decay>
+            <t_source>0</t_source>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <source_id>sh_source_0</source_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Source_correlator>
+          <source_corr>2.885231799098 0 0 0 0 0 0 0</source_corr>
+        </Source_correlator>
+      </make_source>
+    </elem>
+    <elem>
+      <propagator>
+        <update_no>0</update_no>
+        <ProgramInfo>
+          <code_version>
+            <chroma>3.31.1</chroma>
+            <qdp>1.29.0</qdp>
+            <basePrecision>64</basePrecision>
+          </code_version>
+          <run_date>11 Nov 08 16:48:50 EST</run_date>
+          <Setgeom>
+            <latt_size>4 4 4 8</latt_size>
+            <logical_size>1 1 1 1</logical_size>
+            <subgrid_size>4 4 4 8</subgrid_size>
+            <total_volume>512</total_volume>
+            <subgrid_volume>512</subgrid_volume>
+          </Setgeom>
+        </ProgramInfo>
+        <Input>
+          <Param>
+            <version>9</version>
+            <quarkSpinType>FULL</quarkSpinType>
+            <obsvP>false</obsvP><FermionAction>
+      <FermAct>WILSON</FermAct>
+      <Kappa>0.11</Kappa>
+      <AnisoParam>
+        <anisoP>false</anisoP>
+        <t_dir>3</t_dir>
+        <xi_0>1.0</xi_0>
+        <nu>1.0</nu>
+      </AnisoParam>
+      <FermionBC>
+        <FermBC>SIMPLE_FERMBC</FermBC>
+        <boundary>1 1 1 -1</boundary>
+      </FermionBC>
+    </FermionAction>
+<InvertParam>
+      <invType>CG_INVERTER</invType>
+      <RsdCG>1.0e-12</RsdCG>
+      <MaxCG>1000</MaxCG>
+    </InvertParam>
+</Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <source_id>sh_source_0</source_id>
+            <prop_id>sh_prop_0</prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Output_version>
+          <out_version>1</out_version>
+        </Output_version>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Source_file_info><make_source>
+      <id>285007730</id>
+    </make_source>
+
+        </Source_file_info>
+        <Source_record_info><MakeSource>
+      <version>1</version>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </MakeSource>
+
+        </Source_record_info>
+        <Source_correlator>
+          <source_corr>2.885231799098 0 0 0 0 0 0 0</source_corr>
+        </Source_correlator>
+        <QuarkProp4>
+          <Qprop>
+            <color_source>0</color_source>
+            <spin_source>0</spin_source>
+            <n_count>23</n_count>
+            <resid>2.21758451247267e-13</resid>
+          </Qprop>
+          <Qprop>
+            <color_source>0</color_source>
+            <spin_source>1</spin_source>
+            <n_count>23</n_count>
+            <resid>2.20205018746496e-13</resid>
+          </Qprop>
+          <Qprop>
+            <color_source>0</color_source>
+            <spin_source>2</spin_source>
+            <n_count>23</n_count>
+            <resid>2.32318101863473e-13</resid>
+          </Qprop>
+          <Qprop>
+            <color_source>0</color_source>
+            <spin_source>3</spin_source>
+            <n_count>23</n_count>
+            <resid>2.08690609725231e-13</resid>
+          </Qprop>
+          <Qprop>
+            <color_source>1</color_source>
+            <spin_source>0</spin_source>
+            <n_count>23</n_count>
+            <resid>2.17761179801277e-13</resid>
+          </Qprop>
+          <Qprop>
+            <color_source>1</color_source>
+            <spin_source>1</spin_source>
+            <n_count>23</n_count>
+            <resid>2.21003239549361e-13</resid>
+          </Qprop>
+          <Qprop>
+            <color_source>1</color_source>
+            <spin_source>2</spin_source>
+            <n_count>23</n_count>
+            <resid>2.23578262817581e-13</resid>
+          </Qprop>
+          <Qprop>
+            <color_source>1</color_source>
+            <spin_source>3</spin_source>
+            <n_count>23</n_count>
+            <resid>2.38948377784288e-13</resid>
+          </Qprop>
+          <Qprop>
+            <color_source>2</color_source>
+            <spin_source>0</spin_source>
+            <n_count>23</n_count>
+            <resid>2.16446152258775e-13</resid>
+          </Qprop>
+          <Qprop>
+            <color_source>2</color_source>
+            <spin_source>1</spin_source>
+            <n_count>23</n_count>
+            <resid>2.11598928139861e-13</resid>
+          </Qprop>
+          <Qprop>
+            <color_source>2</color_source>
+            <spin_source>2</spin_source>
+            <n_count>23</n_count>
+            <resid>2.14362075428018e-13</resid>
+          </Qprop>
+          <Qprop>
+            <color_source>2</color_source>
+            <spin_source>3</spin_source>
+            <n_count>23</n_count>
+            <resid>2.21806700324123e-13</resid>
+          </Qprop>
+        </QuarkProp4>
+        <Relaxation_Iterations>
+          <ncg_had>276</ncg_had>
+        </Relaxation_Iterations>
+        <Prop_correlator>
+          <prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</prop_corr>
+        </Prop_correlator>
+      </propagator>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+        <deriv_dir>3</deriv_dir>
+        <deriv_length>2</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.000231017512380305 0.00223402860060617 0.0747082443048206 0.0020909985858915 0.000229733206434414 0.00222280779194361 0.0750758968797784 0.0021018413220822</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>SHELL_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <SmearingParam>
+        <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+        <wvf_param>2.0</wvf_param>
+        <wvfIntPar>5</wvfIntPar>
+        <no_smear_dir>3</no_smear_dir>
+      </SmearingParam>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>A0xNABLA_T1-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+      <LinkSmearing>
+        <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+        <link_smear_fact>2.5</link_smear_fact>
+        <link_smear_num>1</link_smear_num>
+        <no_smear_dir>3</no_smear_dir>
+      </LinkSmearing>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.184105550602279 0.000301976856232937 1.40822305641977e-05 5.13678317875029e-07 6.75981584302908e-08 8.22152872937331e-07 1.37020482427181e-05 0.000162005474522073</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>A0xNABLA_T1-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.111359071439574 0.00407734926422974 0.000197181437332309 1.19401341153651e-05 1.14643186313694e-06 1.10473956883961e-05 0.000231752946498556 0.00399692368034453</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>RHOxNABLA_A1-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.327588039577956 0.0115620288578519 0.00059065245944477 3.32276526490544e-05 3.3458903126185e-06 3.29303793705377e-05 0.000630271075235422 0.011907382182481</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>RHOxNABLA_T1-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.23001037468049 0.00787853886241803 0.000417499102954351 2.24437468029274e-05 2.33151318253352e-06 2.31000953743556e-05 0.000419967690856112 0.00830857043500335</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>RHOxNABLA_T2-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.245765255516354 0.00829543232519598 0.000440646203137076 2.35174418889508e-05 2.45659837835509e-06 2.45012588438061e-05 0.000444345688610561 0.0087384969768009</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>A1xNABLA_A1-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.327588039577956 0.0115620288578519 0.00059065245944477 3.32276526490544e-05 3.3458903126185e-06 3.29303793705377e-05 0.000630271075235422 0.011907382182481</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>A1xNABLA_T2-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.245765255516354 0.00829543232519598 0.000440646203137076 2.35174418889508e-05 2.45659837835509e-06 2.45012588438061e-05 0.000444345688610561 0.0087384969768009</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>A1xNABLA_E-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.122211308907928 0.00413850381023279 0.000210536957965902 1.1903548925848e-05 1.2071040424364e-06 1.18138378084384e-05 0.000225388862251597 0.00430844148383957</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>B1xNABLA_T1-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.78882149124168 0.0337492072045889 0.00163780216552268 9.25600174681238e-05 9.53168999585453e-06 9.28003085433221e-05 0.00182042278433934 0.0364369375898475</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>A0_2xD_T2-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.408486989121511 0.0163960116977252 0.000860831893941424 4.65573328169789e-05 4.34569074761691e-06 4.81298781320644e-05 0.000863532361001175 0.0167658468505112</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>A1xD_A2-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>1.22914765898344 0.0508778543967618 0.00255159695495652 0.000141136318999133 1.40659813225446e-05 0.000143178542034369 0.00272809821846602 0.0539581678752768</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>A1xD_E-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.37078095993578 0.0159098841711844 0.000825432110715136 4.51116964829251e-05 4.3709414250081e-06 4.60046038085388e-05 0.000852630495648653 0.0171847274790524</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>A1xD_T1-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.7548992702299 0.0330250760110803 0.00160272289925017 8.96845117882989e-05 9.23415674826631e-06 9.00444101791398e-05 0.00177117224804806 0.0353298012177305</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>A1xD_T2-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.78882149124168 0.0337492072045889 0.00163780216552268 9.25600174681238e-05 9.53168999585453e-06 9.28003085433221e-05 0.00182042278433934 0.0364369375898475</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>B1xD_A2-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>1.22914765898344 0.0508778543967618 0.00255159695495652 0.000141136318999133 1.40659813225446e-05 0.000143178542034369 0.00272809821846602 0.0539581678752768</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>B1xD_E-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.37078095993578 0.0159098841711844 0.000825432110715136 4.51116964829251e-05 4.3709414250081e-06 4.60046038085388e-05 0.000852630495648653 0.0171847274790524</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>B1xD_T1-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.7548992702299 0.0330250760110803 0.00160272289925017 8.96845117882989e-05 9.23415674826631e-06 9.00444101791398e-05 0.00177117224804806 0.0353298012177305</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>B1xD_T2-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.78882149124168 0.0337492072045889 0.00163780216552268 9.25600174681238e-05 9.53168999585453e-06 9.28003085433221e-05 0.00182042278433934 0.0364369375898475</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>RHOxD_A2-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>1.22914765898344 0.0508778543967618 0.00255159695495652 0.000141136318999133 1.40659813225446e-05 0.000143178542034369 0.00272809821846602 0.0539581678752768</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>B1xD_T1-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.7548992702299 0.0330250760110803 0.00160272289925017 8.96845117882989e-05 9.23415674826631e-06 9.00444101791398e-05 0.00177117224804806 0.0353298012177305</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>B1xD_T2-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.78882149124168 0.0337492072045889 0.00163780216552268 9.25600174681238e-05 9.53168999585453e-06 9.28003085433221e-05 0.00182042278433934 0.0364369375898475</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>PIONxD_T2-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.408486989121511 0.0163960116977252 0.000860831893941424 4.65573328169789e-05 4.34569074761691e-06 4.81298781320644e-05 0.000863532361001175 0.0167658468505112</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>PIONxD_T2-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.408486989121511 0.0163960116977252 0.000860831893941424 4.65573328169789e-05 4.34569074761691e-06 4.81298781320644e-05 0.000863532361001175 0.0167658468505112</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>RHOxB_T1-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.983472645853001 0.0312999475556643 0.00173971176482059 9.65234894445098e-05 9.31102066395242e-06 9.10918590613073e-05 0.00171178611739608 0.0310428946575031</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>RHOxB_T2-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>1.01314694822976 0.0319897621816797 0.00177813989294097 9.87810384304581e-05 9.49842954562509e-06 9.34150528382622e-05 0.00175973143553696 0.0318219608856588</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>A1xB_A1-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>1.51386890915114 0.0467576445624365 0.00252396449856053 0.000137905025597802 1.41878108689454e-05 0.000137007564142483 0.00252122020325948 0.0487062287466693</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>A1xB_T1-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>0.983472645853001 0.0312999475556643 0.00173971176482059 9.65234894445098e-05 9.31102066395242e-06 9.10918590613073e-05 0.00171178611739608 0.0310428946575031</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+    <elem>
+      <sink_smear>
+        <update_no>0</update_no>
+        <Input>
+          <Param>
+            <version>5</version><Sink>
+      <version>2</version>
+      <SinkType>POINT_SINK</SinkType>
+      <j_decay>3</j_decay>
+      <Displacement>
+        <version>1</version>
+        <DisplacementType>A1xB_T2-DERIV</DisplacementType>
+        <deriv_dir>0</deriv_dir>
+        <deriv_length>1</deriv_length>
+      </Displacement>
+    </Sink>
+
+            <j_decay>3</j_decay>
+          </Param>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+            <prop_id>sh_prop_0</prop_id>
+            <smeared_prop_id>sink_tmp</smeared_prop_id>
+          </NamedObject>
+        </Input>
+        <Config_info><disordered>
+</disordered>
+
+
+
+        </Config_info>
+        <Observables>
+          <w_plaq>-0.00355243237663191</w_plaq>
+          <s_plaq>-0.00700866312757174</s_plaq>
+          <t_plaq>-9.62016256920846e-05</t_plaq>
+          <plane_01_plaq>0.00114783610630936</plane_01_plaq>
+          <plane_02_plaq>-0.0161626924708745</plane_02_plaq>
+          <plane_12_plaq>-0.00601113301815011</plane_12_plaq>
+          <plane_03_plaq>-0.0109873645064572</plane_03_plaq>
+          <plane_13_plaq>0.0102025380004701</plane_13_plaq>
+          <plane_23_plaq>0.000496221628910826</plane_23_plaq>
+          <link>0.114362166133513</link>
+          <pollp>
+            <elem>
+              <re>-0.0142489311335197</re>
+              <im>-0.00292557266591678</im>
+            </elem>
+            <elem>
+              <re>0.0112266081244055</re>
+              <im>0.00350011716788087</im>
+            </elem>
+            <elem>
+              <re>0.0229389128952004</re>
+              <im>0.0300484262411223</im>
+            </elem>
+            <elem>
+              <re>-0.021398693853961</re>
+              <im>-0.0267861766502649</im>
+            </elem>
+          </pollp>
+        </Observables>
+        <Prop_file_info><propagator>
+      <id>285007732</id>
+    </propagator>
+
+        </Prop_file_info>
+        <Prop_record_info><Propagator>
+      <version>1</version>
+      <ForwardProp>
+        <version>9</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+          <FermAct>WILSON</FermAct>
+          <Kappa>0.11</Kappa>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+          <FermionBC>
+            <FermBC>SIMPLE_FERMBC</FermBC>
+            <boundary>1 1 1 -1</boundary>
+          </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-12</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </ForwardProp>
+      <PropSource>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>SHELL_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>2.0</wvf_param>
+            <wvfIntPar>5</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>PIONxNABLA_T1-DERIV</DisplacementType>
+            <deriv_dir>1</deriv_dir>
+            <deriv_length>1</deriv_length>
+          </Displacement>
+          <LinkSmearing>
+            <LinkSmearingType>APE_SMEAR</LinkSmearingType>
+            <link_smear_fact>2.5</link_smear_fact>
+            <link_smear_num>1</link_smear_num>
+            <no_smear_dir>3</no_smear_dir>
+          </LinkSmearing>
+        </Source>
+        <j_decay>3</j_decay>
+        <t_source>0</t_source>
+      </PropSource>
+      <Config_info>
+        <disordered>
+</disordered>
+      </Config_info>
+    </Propagator>
+
+        </Prop_record_info>
+        <Forward_prop_correlator>
+          <forward_prop_corr>0.0748938363254663 0.00209443498850205 0.000113604710243495 6.0784775312606e-06 6.15116096587809e-07 5.95505534824138e-06 0.000117246784380629 0.00222658860570702</forward_prop_corr>
+        </Forward_prop_correlator>
+        <SinkSmearedProp_correlator>
+          <sink_smeared_prop_corr>1.01314694822976 0.0319897621816797 0.00177813989294097 9.87810384304581e-05 9.49842954562509e-06 9.34150528382622e-05 0.00175973143553696 0.0318219608856588</sink_smeared_prop_corr>
+        </SinkSmearedProp_correlator>
+      </sink_smear>
+    </elem>
+    <elem>
+      <erase_named_obj>
+        <update_no>0</update_no>
+        <object_id>sink_tmp</object_id>
+      </erase_named_obj>
+    </elem>
+  </InlineObservables>
+</chroma>

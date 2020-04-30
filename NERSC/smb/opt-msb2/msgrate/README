@@ -1,0 +1,1 @@
+Please set the path of $(MPICC_INCLUDE) and $(MIPCC_LIBRARY) in the Makefile.

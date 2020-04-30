@@ -1,0 +1,138 @@
+$Id: readme_level3_staggered,v 1.4 2007-12-16 11:54:38 mcneile Exp $
+Staggered level3 inverter into chroma
+--------------------------------------
+
+Some notes on using the level 3 asqtad
+inverter (http://usqcd.jlab.org/usqcd-docs/qopqdp/) from SciDac 
+with Chroma. Essentially Chroma calls the fast inverter
+for Asqtad fermions in the qopqdp library.
+
+This code has been tested on a PC and a 1024 node QCDOC.
+This should be viewed as an experimental release.
+
+Compilation
+-------------
+To include the level3 libraries you need the following options
+for the configure script.
+
+--enable-asqtad-level3-inverter
+--with-asqtadlevel3=directory_with_scidac_libs
+
+../chroma_level3/configure --with-qdp=${qdp_install} CXXFLAGS=" -g -finline-limit=50000" --prefix=${qdp_install}  --enable-asqtad-level3-inverter --with-asqtadlevel3=/scratch/ikki/mcneile/codes/scidac/install
+
+ls /scratch/ikki/mcneile/codes/scidac/install
+qdp/  qio/  qla/  qmp/  qopqdp/
+
+The libraries have to have the above structure.
+
+Implementation Notes
+--------------------
+
+The bulk of the code is in the routines:
+
+chroma/lib/actions/ferm/qprop/asqtad_cps_wrapper_qprop.h
+chroma/lib/actions/ferm/qprop/asqtad_cps_wrapper_qprop.cc
+
+The main program needs to call the function  setup_levelthree
+#if defined(BUILD_CPS_ASQTAD_INVERTER)
+  setup_levelthree(input.param.nrow, &argc, &argv ) ;
+#endif
+
+I have not used the fat link routines from
+the qopqdp library. I don't believe that the
+chroma fatlink routines were the performance bottleneck
+on the QCDOC. Also it wasn't obvious how to turn off
+the chroma fatlik routines.
+
+Tips/tricks
+-------------
+
+1) If you want to test against the pure chroma
+   asqtad inverter the easist thing is to 
+   define and undefine BUILD_CPS_ASQTAD_INVERTER)
+   in
+chroma/lib/actions/ferm/qprop/asqtad_qprop.h
+#if defined(BUILD_CPS_ASQTAD_INVERTER)
+
+    This doesn't force a huge compilation.
+
+2) If you want to get more verbose output from the 
+   level 3 inverter, then use the QOP_verbose call.
+
+  //  QOP_verbose(QOP_VERB_HI);
+  QOP_asqtad_invert(&info, fla, &inv_arg, &res_arg, mass, qopout, qopin);
+
+3) On the QCDOC we had problems (segmentation fault) with a 4**4 subvolume on
+   a 64 node machine.
+
+
+To DO
+------
+The configure script should check that a simple program
+can link against the qopqdp library.
+
+Need to think about the precision issue.
+#define QLA_Precision 'F'
+
+Need to think about the restart stratergy
+  inv_arg.max_iter = invParam.MaxCG;
+  inv_arg.restart = 500 ;
+  inv_arg.max_restarts = 5;
+  inv_arg.evenodd = QOP_EVENODD ;
+
+The qopqdp inverter takes many more iterations than
+the pure chroma inverter, but is still a lot
+faster.
+
+The solution is divided by 2 to get the same
+norm as the chroma code. At the moment this is hidden
+in a routines, but should be more explicit in
+the main routine.
+
+History
+-------
+
+A long - long time ago, Balint added hooks so that we
+call level 3 libraries. Zbyszek worked on
+a system to call the CPS inverter from qdp++/chroma.
+
+
+Compiling the level 3 libraries
+--------------------------------
+
+The versions of the scidac we used to get this to work is
+
+qdp-1.5.6.tar
+qio-2.1.6.tar
+qla-1.5.4.tar
+qmp-2.1.7.tar
+qopqdp-0.10.0.tar
+
+(http://usqcd.jlab.org/usqcd-software/)
+
+(The normalisation of the dslash operator has changed
+in the qopqdp-0.10.0 over previous versions).
+
+To simplify the level3 build structure 
+
+export TOP=/scratch/ikki/mcneile/codes/scidac
+
+# QMP
+cd qmp-2.1.7
+./configure  --prefix=${TOP}/install/qmp
+
+# QIO
+
+cd qio-2.1.6
+./configure --prefix=${TOP}/install/qio CFLAGS="-O3" --with-qmp=${TOP}/install/qmp --disable-qmp-route
+
+# QLA
+
+ ./configure --prefix=${TOP}/install/qla --enable-nc=3 CC=gcc CFLAGS="-O2 " LDFLAGS="-static"
+
+# QDP
+
+./configure --prefix=${TOP}/install/qdp --with-qmp=${TOP}/install/qmp --enable-nc=3  --with-qla=${TOP}/install/qla  --with-qio=${TOP}/install/qio CC=gcc CFLAGS="-O2 "
+
+#  qopqdp
+./configure --prefix=${TOP}/install/qopqdp --with-qdp=${TOP}/install/qdp --with-qla=${TOP}/install/qla --with-qio=${TOP}/install/qio --with-qmp=${TOP}/install/qmp CC=cc CFLAGS="-O2 "

@@ -1,0 +1,577 @@
+<?xml version="1.0"?>
+
+
+<chroma>
+  <Input><chroma>
+<annotation>
+; $Id: eigbnds.out.xml,v 3.8 2008-06-05 03:33:15 edwards Exp $
+;
+; Test input file for chroma program
+;
+</annotation>
+<Param> 
+  <InlineMeasurements>
+    <elem>
+      <!-- This measures lowest/highest ev of prec. Wilson -->
+      <Name>EIGBNDSMDAGM</Name>
+      <Frequency>1</Frequency>
+      <Ritz>
+        <RsdR>1.0e-2</RsdR>
+        <RsdA>1.0e-3</RsdA>
+        <RsdZero>5.0e-6</RsdZero>
+        <ProjApsiP>false</ProjApsiP>
+        <Nmin>5</Nmin>
+        <MaxCG>10000</MaxCG>
+        <Nrenorm>10</Nrenorm>
+      </Ritz>
+      <FermionAction>
+        <FermAct>WILSON</FermAct>
+        <Kappa>0.11</Kappa>
+        <boundary>1 1 1 -1</boundary>
+      </FermionAction>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <!-- This measures lowest/highest ev of prec. DWF -->
+      <Name>EIGBNDSMDAGM</Name>
+      <Frequency>1</Frequency>
+      <usePV>false</usePV>
+      <Ritz>
+        <RsdR>1.0e-2</RsdR>
+        <RsdA>1.0e-3</RsdA>
+        <RsdZero>5.0e-6</RsdZero>
+        <ProjApsiP>false</ProjApsiP>
+        <Nmin>5</Nmin>
+        <MaxCG>10000</MaxCG>
+        <Nrenorm>10</Nrenorm>
+      </Ritz>
+      <FermionAction>
+        <FermAct>DWF</FermAct>
+        <Mass>0.06</Mass>
+        <OverMass>1.4</OverMass>
+        <N5>6</N5>
+        <boundary>1 1 1 -1</boundary>
+      </FermionAction>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <!-- This measures lowest/highest ev of prec. DWF -->
+      <Name>EIGBNDSMDAGM</Name>
+      <Frequency>1</Frequency>
+      <usePV>true</usePV>
+      <Ritz>
+        <RsdR>1.0e-2</RsdR>
+        <RsdA>1.0e-3</RsdA>
+        <RsdZero>5.0e-6</RsdZero>
+        <ProjApsiP>false</ProjApsiP>
+        <Nmin>5</Nmin>
+        <MaxCG>10000</MaxCG>
+        <Nrenorm>10</Nrenorm>
+      </Ritz>
+      <FermionAction>
+        <FermAct>DWF</FermAct>
+        <Mass>0.06</Mass>
+        <OverMass>1.4</OverMass>
+        <N5>6</N5>
+        <boundary>1 1 1 -1</boundary>
+      </FermionAction>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <!-- This measures lowest/highest ev of prec. DWF -->
+      <Name>EIGBNDSMDAGM</Name>
+      <Frequency>1</Frequency>
+      <usePV>false</usePV>
+      <Ritz>
+        <RsdR>1.0e-2</RsdR>
+        <RsdA>1.0e-3</RsdA>
+        <RsdZero>5.0e-6</RsdZero>
+        <ProjApsiP>false</ProjApsiP>
+        <Nmin>5</Nmin>
+        <MaxCG>10000</MaxCG>
+        <Nrenorm>10</Nrenorm>
+      </Ritz>
+      <FermionAction>
+        <FermAct>DWF</FermAct>
+        <Mass>1.0</Mass>
+        <OverMass>1.4</OverMass>
+        <N5>6</N5>
+        <boundary>1 1 1 -1</boundary>
+      </FermionAction>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <!-- This measures lowest/highest ev of prec. CFZ -->
+      <Name>EIGBNDSMDAGM</Name>
+      <Frequency>1</Frequency>
+      <usePV>false</usePV>
+      <Ritz>
+        <RsdR>1.0e-2</RsdR>
+        <RsdA>1.0e-3</RsdA>
+        <RsdZero>5.0e-6</RsdZero>
+        <ProjApsiP>false</ProjApsiP>
+        <Nmin>5</Nmin>
+        <MaxCG>10000</MaxCG>
+        <Nrenorm>10</Nrenorm>
+      </Ritz>
+      <FermionAction>
+        <FermAct>OVERLAP_CONTINUED_FRACTION_5D</FermAct>
+        <ApproximationType>ZOLOTAREV</ApproximationType>
+        <Mass>0.06</Mass>
+        <RatPolyDeg>6</RatPolyDeg>
+        <OverMass>1.4</OverMass>
+        <boundary>1 1 1 -1</boundary>
+        <!-- The ApproxMin and ApproxMax are superceded by StateInfo if NWilsVec &gt 0 -->
+        <ApproxMin>0.66</ApproxMin>
+        <ApproxMax>6.46357</ApproxMax>
+      </FermionAction>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <!-- This measures lowest/highest ev of prec. CFZ -->
+      <Name>EIGBNDSMDAGM</Name>
+      <Frequency>1</Frequency>
+      <usePV>true</usePV>
+      <Ritz>
+        <RsdR>1.0e-2</RsdR>
+        <RsdA>1.0e-3</RsdA>
+        <RsdZero>5.0e-6</RsdZero>
+        <ProjApsiP>false</ProjApsiP>
+        <Nmin>5</Nmin>
+        <MaxCG>10000</MaxCG>
+        <Nrenorm>10</Nrenorm>
+      </Ritz>
+      <FermionAction>
+        <FermAct>OVERLAP_CONTINUED_FRACTION_5D</FermAct>
+        <ApproximationType>ZOLOTAREV</ApproximationType>
+        <Mass>0.06</Mass>
+        <RatPolyDeg>6</RatPolyDeg>
+        <OverMass>1.4</OverMass>
+        <boundary>1 1 1 -1</boundary>
+        <!-- The ApproxMin and ApproxMax are superceded by StateInfo if NWilsVec &gt 0 -->
+        <ApproxMin>0.66</ApproxMin>
+        <ApproxMax>6.46357</ApproxMax>
+      </FermionAction>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+      </NamedObject>
+    </elem>
+
+  </InlineMeasurements>
+   <nrow>4 4 4 8</nrow>
+</Param>
+<Cfg>
+ <cfg_type>WEAK_FIELD</cfg_type>
+ <cfg_file>dummy</cfg_file>
+</Cfg>
+</chroma>
+
+  </Input>
+  <ProgramInfo>
+    <code_version>
+      <chroma>3.30.0</chroma>
+      <qdp>1.27.0</qdp>
+      <basePrecision>32</basePrecision>
+    </code_version>
+    <run_date>04 Jun 08 22:47:55 EDT</run_date>
+    <Setgeom>
+      <latt_size>4 4 4 8</latt_size>
+      <logical_size>1 1 1 1</logical_size>
+      <subgrid_size>4 4 4 8</subgrid_size>
+      <total_volume>512</total_volume>
+      <subgrid_volume>512</subgrid_volume>
+    </Setgeom>
+  </ProgramInfo>
+  <RNG>
+    <Seed>
+      <elem>11</elem>
+      <elem>0</elem>
+      <elem>0</elem>
+      <elem>0</elem>
+    </Seed>
+  </RNG>
+  <Config_info><weak_field>
+</weak_field>
+
+  </Config_info>
+  <Observables>
+    <w_plaq>0.994764811229996</w_plaq>
+    <s_plaq>0.994800868133704</s_plaq>
+    <t_plaq>0.994728754326287</t_plaq>
+    <plane_01_plaq>0.994752410954485</plane_01_plaq>
+    <plane_02_plaq>0.995051669888198</plane_02_plaq>
+    <plane_12_plaq>0.994598523558428</plane_12_plaq>
+    <plane_03_plaq>0.994927932818731</plane_03_plaq>
+    <plane_13_plaq>0.994742131947229</plane_13_plaq>
+    <plane_23_plaq>0.994516198212902</plane_23_plaq>
+    <link>0.379317688096004</link>
+    <pollp>
+      <elem>
+        <re>0.96722258736069</re>
+        <im>-0.00121316528187284</im>
+      </elem>
+      <elem>
+        <re>0.967032058009257</re>
+        <im>-0.00129616999978073</im>
+      </elem>
+      <elem>
+        <re>0.96746751650547</re>
+        <im>-0.00114548282635951</im>
+      </elem>
+      <elem>
+        <re>0.879538941662759</re>
+        <im>-0.0104402848846803</im>
+      </elem>
+    </pollp>
+  </Observables>
+  <InlineObservables>
+    <elem>
+      <EigBndsMdagM>
+        <update_no>0</update_no>
+        <Input>
+          <Frequency>1</Frequency>
+          <usePV>false</usePV><FermionAction>
+      <FermAct>WILSON</FermAct>
+      <Kappa>0.11</Kappa>
+      <boundary>1 1 1 -1</boundary>
+    </FermionAction>
+
+          <Ritz>
+            <RsdR>0.01</RsdR>
+            <RsdRHi>0.01</RsdRHi>
+            <RsdA>0.001</RsdA>
+            <RsdAHi>0.001</RsdAHi>
+            <RsdZero>5e-06</RsdZero>
+            <ProjApsiP>false</ProjApsiP>
+            <Nmin>5</Nmin>
+            <MaxCG>10000</MaxCG>
+            <Nrenorm>10</Nrenorm>
+          </Ritz>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+          </NamedObject>
+        </Input>
+        <LowestEv>
+          <EigSpecRitzCG>
+            <eval1>
+              <n_count>43</n_count>
+            </eval1>
+            <eValues>
+              <lambda>1.680115</lambda>
+            </eValues>
+            <n_cg_tot>43</n_cg_tot>
+          </EigSpecRitzCG>
+        </LowestEv>
+        <HighestEv>
+          <EigSpecRitzCG>
+            <eval1>
+              <n_count>15</n_count>
+            </eval1>
+            <eValues>
+              <lambda>-29.07604</lambda>
+            </eValues>
+            <n_cg_tot>15</n_cg_tot>
+          </EigSpecRitzCG>
+        </HighestEv>
+      </EigBndsMdagM>
+    </elem>
+    <elem>
+      <EigBndsMdagM>
+        <update_no>0</update_no>
+        <Input>
+          <Frequency>1</Frequency>
+          <usePV>false</usePV><FermionAction>
+      <FermAct>DWF</FermAct>
+      <Mass>0.06</Mass>
+      <OverMass>1.4</OverMass>
+      <N5>6</N5>
+      <boundary>1 1 1 -1</boundary>
+    </FermionAction>
+
+          <Ritz>
+            <RsdR>0.01</RsdR>
+            <RsdRHi>0.01</RsdRHi>
+            <RsdA>0.001</RsdA>
+            <RsdAHi>0.001</RsdAHi>
+            <RsdZero>5e-06</RsdZero>
+            <ProjApsiP>false</ProjApsiP>
+            <Nmin>5</Nmin>
+            <MaxCG>10000</MaxCG>
+            <Nrenorm>10</Nrenorm>
+          </Ritz>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+          </NamedObject>
+        </Input>
+        <LowestEv>
+          <EigSpecRitzCG>
+            <eval1>
+              <n_count>71</n_count>
+            </eval1>
+            <eValues>
+              <lambda>0.456874</lambda>
+            </eValues>
+            <n_cg_tot>71</n_cg_tot>
+          </EigSpecRitzCG>
+        </LowestEv>
+        <EigenVectorProfile>0.611784114806361 0.0758370062407927 0.00947774787035498 0.00487684032518419 0.0328488599767831 0.265175530115958</EigenVectorProfile>
+        <EigenVectorProfilePlus>0.0013169688771733 8.80185785619569e-05 0.000477091750694258 0.00396069932758926 0.0328171528421587 0.263901413625504</EigenVectorProfilePlus>
+        <EigenVectorProfileMinus>0.610467145537522 0.0757489877408895 0.00900065613732651 0.000916140999376421 3.17071241314228e-05 0.00127411643982929</EigenVectorProfileMinus>
+        <HighestEv>
+          <EigSpecRitzCG>
+            <eval1>
+              <n_count>18</n_count>
+            </eval1>
+            <eValues>
+              <lambda>-28.84311</lambda>
+            </eValues>
+            <n_cg_tot>18</n_cg_tot>
+          </EigSpecRitzCG>
+        </HighestEv>
+      </EigBndsMdagM>
+    </elem>
+    <elem>
+      <EigBndsMdagM>
+        <update_no>0</update_no>
+        <Input>
+          <Frequency>1</Frequency>
+          <usePV>true</usePV><FermionAction>
+      <FermAct>DWF</FermAct>
+      <Mass>0.06</Mass>
+      <OverMass>1.4</OverMass>
+      <N5>6</N5>
+      <boundary>1 1 1 -1</boundary>
+    </FermionAction>
+
+          <Ritz>
+            <RsdR>0.01</RsdR>
+            <RsdRHi>0.01</RsdRHi>
+            <RsdA>0.001</RsdA>
+            <RsdAHi>0.001</RsdAHi>
+            <RsdZero>5e-06</RsdZero>
+            <ProjApsiP>false</ProjApsiP>
+            <Nmin>5</Nmin>
+            <MaxCG>10000</MaxCG>
+            <Nrenorm>10</Nrenorm>
+          </Ritz>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+          </NamedObject>
+        </Input>
+        <LowestEv>
+          <EigSpecRitzCG>
+            <eval1>
+              <n_count>68</n_count>
+            </eval1>
+            <eValues>
+              <lambda>2.253879</lambda>
+            </eValues>
+            <n_cg_tot>68</n_cg_tot>
+          </EigSpecRitzCG>
+        </LowestEv>
+        <EigenVectorProfile>0.170013734477747 0.173843139571868 0.170576766800314 0.163550193212778 0.15942764630105 0.162588574787584</EigenVectorProfile>
+        <EigenVectorProfilePlus>0.0671322034078926 0.0339848364419267 0.0313689367410888 0.0616881429056071 0.0946450104740785 0.0974606439515008</EigenVectorProfilePlus>
+        <EigenVectorProfileMinus>0.102881531199069 0.139858303234301 0.139207830064686 0.101862050243484 0.0647826357652018 0.0651279307449737</EigenVectorProfileMinus>
+        <HighestEv>
+          <EigSpecRitzCG>
+            <eval1>
+              <n_count>15</n_count>
+            </eval1>
+            <eValues>
+              <lambda>-28.65398</lambda>
+            </eValues>
+            <n_cg_tot>15</n_cg_tot>
+          </EigSpecRitzCG>
+        </HighestEv>
+      </EigBndsMdagM>
+    </elem>
+    <elem>
+      <EigBndsMdagM>
+        <update_no>0</update_no>
+        <Input>
+          <Frequency>1</Frequency>
+          <usePV>false</usePV><FermionAction>
+      <FermAct>DWF</FermAct>
+      <Mass>1.0</Mass>
+      <OverMass>1.4</OverMass>
+      <N5>6</N5>
+      <boundary>1 1 1 -1</boundary>
+    </FermionAction>
+
+          <Ritz>
+            <RsdR>0.01</RsdR>
+            <RsdRHi>0.01</RsdRHi>
+            <RsdA>0.001</RsdA>
+            <RsdAHi>0.001</RsdAHi>
+            <RsdZero>5e-06</RsdZero>
+            <ProjApsiP>false</ProjApsiP>
+            <Nmin>5</Nmin>
+            <MaxCG>10000</MaxCG>
+            <Nrenorm>10</Nrenorm>
+          </Ritz>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+          </NamedObject>
+        </Input>
+        <LowestEv>
+          <EigSpecRitzCG>
+            <eval1>
+              <n_count>67</n_count>
+            </eval1>
+            <eValues>
+              <lambda>2.253776</lambda>
+            </eValues>
+            <n_cg_tot>67</n_cg_tot>
+          </EigSpecRitzCG>
+        </LowestEv>
+        <EigenVectorProfile>0.204800202305025 0.269853694513287 0.231821220930428 0.128519470857087 0.0633397301936253 0.10166567821919</EigenVectorProfile>
+        <EigenVectorProfilePlus>0.13180137383072 0.144407098405685 0.109938849331864 0.0625556820372411 0.0500333700206008 0.0848764363503457</EigenVectorProfilePlus>
+        <EigenVectorProfileMinus>0.0729988285404763 0.125446596152268 0.121882371638923 0.0659637888865087 0.013306360160732 0.0167892418937099</EigenVectorProfileMinus>
+        <HighestEv>
+          <EigSpecRitzCG>
+            <eval1>
+              <n_count>15</n_count>
+            </eval1>
+            <eValues>
+              <lambda>-28.64811</lambda>
+            </eValues>
+            <n_cg_tot>15</n_cg_tot>
+          </EigSpecRitzCG>
+        </HighestEv>
+      </EigBndsMdagM>
+    </elem>
+    <elem>
+      <EigBndsMdagM>
+        <update_no>0</update_no>
+        <Input>
+          <Frequency>1</Frequency>
+          <usePV>false</usePV><FermionAction>
+      <FermAct>OVERLAP_CONTINUED_FRACTION_5D</FermAct>
+      <ApproximationType>ZOLOTAREV</ApproximationType>
+      <Mass>0.06</Mass>
+      <RatPolyDeg>6</RatPolyDeg>
+      <OverMass>1.4</OverMass>
+      <boundary>1 1 1 -1</boundary>
+      <!-- The ApproxMin and ApproxMax are superceded by StateInfo if NWilsVec &gt 0 -->
+      <ApproxMin>0.66</ApproxMin>
+      <ApproxMax>6.46357</ApproxMax>
+    </FermionAction>
+
+          <Ritz>
+            <RsdR>0.01</RsdR>
+            <RsdRHi>0.01</RsdRHi>
+            <RsdA>0.001</RsdA>
+            <RsdAHi>0.001</RsdAHi>
+            <RsdZero>5e-06</RsdZero>
+            <ProjApsiP>false</ProjApsiP>
+            <Nmin>5</Nmin>
+            <MaxCG>10000</MaxCG>
+            <Nrenorm>10</Nrenorm>
+          </Ritz>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+          </NamedObject>
+        </Input>
+        <LowestEv>
+          <EigSpecRitzCG>
+            <eval1>
+              <n_count>137</n_count>
+            </eval1>
+            <eValues>
+              <lambda>0.009373654</lambda>
+            </eValues>
+            <n_cg_tot>137</n_cg_tot>
+          </EigSpecRitzCG>
+        </LowestEv>
+        <EigenVectorProfile>0.0127825238238802 0.102682446705788 0.208646468711526 0.265392807047586 0.175014031756283 0.0738367851962156 0.161644858941412</EigenVectorProfile>
+        <EigenVectorProfilePlus>0.00364586191267451 0.0221932129163706 0.0585056710554589 0.0581293316803653 0.0472513637482607 0.0168840422105449 0.0426618890386943</EigenVectorProfilePlus>
+        <EigenVectorProfileMinus>0.00913666192100231 0.0804892337707944 0.150140797609378 0.207263475319554 0.127762667907525 0.0569527429306079 0.118982969950251</EigenVectorProfileMinus>
+        <HighestEv>
+          <EigSpecRitzCG>
+            <eval1>
+              <n_count>18</n_count>
+            </eval1>
+            <eValues>
+              <lambda>-6.494354</lambda>
+            </eValues>
+            <n_cg_tot>18</n_cg_tot>
+          </EigSpecRitzCG>
+        </HighestEv>
+      </EigBndsMdagM>
+    </elem>
+    <elem>
+      <EigBndsMdagM>
+        <update_no>0</update_no>
+        <Input>
+          <Frequency>1</Frequency>
+          <usePV>true</usePV><FermionAction>
+      <FermAct>OVERLAP_CONTINUED_FRACTION_5D</FermAct>
+      <ApproximationType>ZOLOTAREV</ApproximationType>
+      <Mass>0.06</Mass>
+      <RatPolyDeg>6</RatPolyDeg>
+      <OverMass>1.4</OverMass>
+      <boundary>1 1 1 -1</boundary>
+      <!-- The ApproxMin and ApproxMax are superceded by StateInfo if NWilsVec &gt 0 -->
+      <ApproxMin>0.66</ApproxMin>
+      <ApproxMax>6.46357</ApproxMax>
+    </FermionAction>
+
+          <Ritz>
+            <RsdR>0.01</RsdR>
+            <RsdRHi>0.01</RsdRHi>
+            <RsdA>0.001</RsdA>
+            <RsdAHi>0.001</RsdAHi>
+            <RsdZero>5e-06</RsdZero>
+            <ProjApsiP>false</ProjApsiP>
+            <Nmin>5</Nmin>
+            <MaxCG>10000</MaxCG>
+            <Nrenorm>10</Nrenorm>
+          </Ritz>
+          <NamedObject>
+            <gauge_id>default_gauge_field</gauge_id>
+          </NamedObject>
+        </Input>
+        <LowestEv>
+          <EigSpecRitzCG>
+            <eval1>
+              <n_count>113</n_count>
+            </eval1>
+            <eValues>
+              <lambda>0.04570382</lambda>
+            </eValues>
+            <n_cg_tot>113</n_cg_tot>
+          </EigSpecRitzCG>
+        </LowestEv>
+        <EigenVectorProfile>0.380087776903914 0.445407683454315 0.0062103268390405 0.145464002056968 3.15003611007182e-05 0.0227987699690372 4.53912519866938e-08</EigenVectorProfile>
+        <EigenVectorProfilePlus>0.191089726675357 0.207868883804274 0.00312092915542062 0.0678848268277198 1.58279820861266e-05 0.010639631663438 2.31982401754663e-08</EigenVectorProfilePlus>
+        <EigenVectorProfileMinus>0.188998050216238 0.237538799612339 0.00308939767896995 0.0775791752093499 1.56723790096824e-05 0.0121591382924285 2.21930118008908e-08</EigenVectorProfileMinus>
+        <HighestEv>
+          <EigSpecRitzCG>
+            <eval1>
+              <n_count>13</n_count>
+            </eval1>
+            <eValues>
+              <lambda>-3.215845</lambda>
+            </eValues>
+            <n_cg_tot>13</n_cg_tot>
+          </EigSpecRitzCG>
+        </HighestEv>
+      </EigBndsMdagM>
+    </elem>
+  </InlineObservables>
+</chroma>

@@ -1,0 +1,1565 @@
+Jun 24, 2016 - Balint Joo
+        Merged in branch feature/quda_multigrid
+ 	Fixed NEF operator parity to track fix in Quda
+  	Checked with QUDA devel (commit bc696cf85917c813497352353d22a09c5ce02966
+)
+	  + MG worked, NEF worked
+        Reran and checked regressions on CPU
+	(Not Checked: hmc -- will redo this post Titan build)
+
+Sep 9, 2015 - Balint Joo
+	Added gtest testing: enable with --enable-gtest
+
+	Added Basic FGMRES-DR solver. Uses any LinOpSystemSolver as a preconditioner (used MR in testing)
+	Needs LAPACK (--enable-lapack) to work correctly. Currently tested with MKL.
+        Modified qdp_lapack submodule appropriately. There are some unit tests in 
+        mainprogs/tests/t_inv_fgmresdr which need --enable-gtest to build and a double
+        precision build to run correctly. SP will still build, but will hit precision limits 
+        on assertions. Solver should(?) work in pure FGMRES mode (no deflation) if LAPACK is
+        not enabled. XML example is included inline in mainprogs/tests/fgmres_dr_tests.cc.
+	All testing so far done on unit testing. Now ready for larger volumes/lighter quarks.
+
+Jun 10, 2015 - Balint Joo
+	Updated Multi-Grid interface and Wilson MG
+
+Feb 6, 2015 - Balint Joo
+	 Pulled in QPhiX Mods for BG/Q
+         Updated std:: namespace issues 
+         Updated CPP-Wilson Dslash with threading patches from Jacques Bloch, Regensburg University
+	 Fixed CLANG compilation issue in the qdp-lapack submodule
+
+Sept 11, 2014 - Balint Joo
+         QPhiX library for Xeon and Xeon Phi (re) integrated. 
+	 See https://http://jeffersonlab.github.io/qphix
+         
+Aug 12, 2014 - Balint Joo
+	 MDWF solver can now do NEF type (Moebius solves) as a LinOpSysSolverArray
+         QUDA Mobius solver integrated for props as a LinOpSysSolverArray 
+         (tested with QUDA, quda-0.7 branch commit ID: b79f883658f780d587bc1e6f3e494d6ed937b506 )
+
+
+July 4, 2012 - Robert Edwards
+        Version 3.42.0
+        Imported changes from devel branch (new propagator support).
+
+Oct 29, 2010 - Robert Edwards
+        Version 3.40.0
+        Overhauled usage of MapObject classes to match new QDP++ interface. The
+        MapObjectDisk now supports multiple closure/openings/insertions.
+
+Oct 09, 2010 - Robert Edwards
+        Version 3.39.0
+        Pulled out the MapObject classes, made them more general, and put them in QDP.
+        Cleaned out some old regression tests.
+
+Jan 07, 2010 - Robert Edwards
+        Version 3.38.0
+        New FILEDB interface down in QDP++. Changed Chroma's SerialDBKey/Data to match 
+        accordingly.
+
+Jan 07, 2010 - Balint Joo
+        Version 3.38.0
+        Merged 3.37.2 devel branch onto master. Fixed regression checks.
+        Ready to go into stable
+
+Jan 01, 2010 - Robert Edwards
+	Version 3.37.2
+        Made a combined prop_colorvec and prop_matelem_colorvec that saves
+        prop dbs and combines in the peram construction. Can avoid using
+        lookups for solution vectors or storing all the solutions in memory/disk.
+
+Dec 31, 2009 - Robert Edwards
+	Version 3.37.1
+        Moved old inline_prop_matelem_colorvec to a low-memory version.
+        New inline_prop_matelem_colorvec reorganizes the loops to cut-down
+        on lookups.
+
+Dec 27, 2009 - Robert Edwards
+	Version 3.37.0
+        Balint wrote a nifty MapObjectDisk and MapObjectMemory that function like
+        databases. A use is to hold lattice objects. New factory system for the
+        beasties. Removed uses of SubsetVectors in favor of MapObject's. Cleaned
+        out some old routines. Lots of other cleanups. Rearranged more the MapObject
+        task system.
+
+Sep 14, 2009 - Robert Edwards
+	Version 3.36.1
+        Switched back to old inline genprop code. Changed inline colorvec codes
+        to check for DB existence. If it does not exist, insert the metadata,
+        else do not reinsert. Lots of improvements in laph codes. 
+
+Aug 25, 2009 - Robert Edwards
+	Version 3.36.0
+        The start of a hybrid stochastic-distillation method (called LAPH -
+        horrible name) by Colin and John. Changed how genprops are contracted
+        in an effort to speed it up. Balint did lots of XLC cleanups.
+
+July 14, 2009 - Robert Edwards
+	Version 3.35.0
+        Balint did all this in 3.34.1, but the latter was never actually
+        tagged it. John Bulava added new measurement routines related to
+        distilled dilution.
+
+7/8/2009 - Balint
+	Version 3.34.1
+        Added IBiCGStab for BiCGStab with 1 Global Reduction per iteration
+	Added Reliable IBiCGStab (Clover only) to allow multi-precision use.
+ 	Added Regressions, tweaked output. 	
+
+05/202009 - Balint Joo
+	Added Multi-Prec BiCGStab Solver (LinOp & MdagM) (Clover Only)
+	Added Internally Single Precision CG Solver (MdagM only,Clover Only)
+
+04/21/2009 - Balint Joo
+	Version 3.34.0
+	Added regression support for multiprec clover in propagator and t_leapfrog
+	Integrated cpp-wilson-dslash for multiprec dslash support. (Experimental)
+
+
+03/04/2009 - Robert Edwards  
+	Version 3.33.0
+        Changed around eigcg support for MdagM and M. New block colorvec support 
+        by Kostas. New sloppy precision sse-dslash support by Balint. Disco eigcg
+        by Kostas and Christopher.
+
+01/26/2009 - Robert Edwards  
+	Version 3.32.0
+        Delta tau version of min-norm-2 integrators. New stochastic
+        insertion for 3-pt corr.  Added static prop colorvec. Added grid
+        sources. IO for eigcg vecs. Disconnected routines. Added static_light_cont
+        and heavy_light_cont.
+
+11/11/2008 - Robert Edwards  
+	Version 3.31.1
+        Fixed the "E" tensor operator in util/ferm/etensor. Reimplemented
+        deriv. seqsources to reuse basic routines. Checked against old deriv.
+        seqsources.
+
+11/11/2008 - Robert Edwards  
+	Version 3.31.0
+        New stochastic generalized prop (3-pt) by Kostas. Added twisted-mass to
+        clover. Put DB's into projection use. Fixed up colorvec generalized prop.
+        New ILU style time-prec for clover. New readers for eigvecs.
+
+08/26/2008 - Robert Edwards  
+	Version 3.30.4
+        Changed format of colorvec dbs. Now use fixed record dbs.
+
+08/26/2008 - Robert Edwards  
+	Version 3.30.3
+        A working version of the colorvec chain.
+
+08/02/2008:  
+	Version 3.30.2
+  	Balint did some rework of the comms in the sse wilson dslash.
+        Started adding some Berkeley DB flags, but these will all change.
+
+07/21/2008:  
+	Version 3.30.1
+        Kostas added some static-light routines from Will Detmold.
+
+05/30/2008:  
+	Version 3.30.0
+  	Major overhaul of monomial structure which are now of the form
+
+	   pseudoferm term		   tag
+	  A=M^dag*M chi*A_1^-1*chi         two_flavor
+	  chi*M_2*A_1^-1*M_2^dag*chi	   two_flavor_ratio_conv_conv
+	  chi*R(A_2)*A_1^-1*R(A_2)*chi	   two_flavor_ratio_conv_rat
+	  chi*R(A_1)*chi		   one_flavor_rat
+	  chi*M_2*R(A_1)*M_2^dag*chi	   one_flavor_ratio_rat_conv
+	  chi*R(A_2)*R(A_1)*R(M_2)*chi	   one_flavor_ratio_rat_rat
+
+	  This structure exists for both 4D and 5D variants. Not all are
+	  implemented at the level of the derivatives, but can be. The 5D
+	  monomials no longer have an explicit reference to the
+	  Pauli-Villars (PV) linOpPV.  That linOp is now added as an
+	  appropriate separate monomial or the M_2 term. This is handled
+	  simply by giving a DWF-like fermact with a quark mass of 1, or it
+	  might require a kind of PV fermact in the case of some of the
+	  more esoteric 5D actions.
+
+05/22/2008:  
+	Version 3.29.2
+	Precision related tweaks in some HMC monomials. Some new variants of qqqNucNuc
+        measurements and hadron_contract measurements.
+
+05/06/2008:  
+	Version 3.29.0
+	 -- Support for MDWF Moebius DWF Library cleaned up and ready to go.
+
+05/05/2008
+	Maintenance: 
+	-- Added support for interfacing to MDWF Moebius DWF library from MIT.
+	   Currently only the Shamir variant of DWF is used and only in the
+           propagator code.
+	   Currently we are having difficulties with mixed precision so 
+           I am enabling the double precision only.
+
+05/02/2008
+	Version 3.28.5 - Maintenance release:
+	some changes here and there, but most importantly,
+	first version of the code to attempt to read write usqcd propagators
+
+	THIS VERSION NOW NEEDS qdp++ CVS Version qdp1-26-0 to build
+
+	Known problems:
+		FIXME: scalar-7n: asqtad candidate  RUN_FAILS
+	                  sink_smearing_s.candidate RUN_FAILS
+	                  spectrum_s.candidate.xml RUN_FAILS
+			  spectrum_s_HISQ.candidate.xml RUN_FAILS
+		Looking at the core file: segfault in  0x00000000005efd7b in Chroma::QDPStaggeredDslash::apply ()
+ 
+01/21/2008 -- Robert Edwards
+	Version 3.28.1 - Cleaned out old intel_sse_dslash code. Removed all
+        stand-alone stout_smear routines. Changed task version to go through
+        stout_utils package. Some new versions of 2+2 gaugeacts. Some more
+        control over eigbounds.
+
+01/21/2008 -- Robert Edwards
+	Version 3.28.0 - Overhauled plaq_gaugeact and lwldslash classes to now
+        use a general form of anistropy coeffients - on all plaqs or links. Now
+        have support for 2+2 anisotropy. New time-prec. ILU Clover hmc. New NPR
+        code. New HISQ code. Some new measurements for hadron_contract for deltas.
+
+11/29/2007 -- Robert Edwards
+	Version 3.27.1 - Bug fix in stout_smear. This appeared in the link_smearing
+        but not in the fermion action smearing (the fermstate codes).
+
+11/12/2007 -- Robert Edwards
+	Version 3.27.0 - First 3d SSE dslash. New SLIC-like and SLRC fermion actions.
+        Some new tasks. Working Eigenvalue accelerated CG code. Changed prop readers
+        to allow an optional Config_info.
+
+10/26/2007 -- Balint Joo
+	Version 3.26.0 - New Dslash written in intrinsics with unit test suite and 
+        complete QMT harness (as opposed to just 32bit parscalar). 
+        --enable-sse-wilson-dslash now enables new dslash. However this may be 
+        slow on 32 bit systems and pentia (rather than opterons). So the old GCC 
+        Inline assembly dslash can be enabled instead with the --enable-sse-wilson-dslash-old 
+        configure switch. Both new and old dslashes cannot be in the same build. 
+        Its one or t'other. Code passed regressions on 7n and compiled and passed 
+        all regressions but the mres one in parscalar-single with the Intel compiler 
+        and the new dslash.
+
+10/24/2007 -- Robert Edwards
+	Version 3.25.0 - New qdp-lapack package included in other_libs. New
+        system-solver routine "eigcg" that uses Kostas' eigenvector acceleration
+        technique. Renamed the eoprec logdet monomial to agree with other naming
+        schemes.
+
+09/12/2007 -- Balint Joo
+        Version 3.24.3 - Lots of tydiups and fixes especially to SF related code.
+        5D solvers work with GCC-4. Additions for 7n related regression testing.
+        CG-DWF problems hopefully fixed in the chroma-config script file.
+
+08/23/2007 -- Robert Edwards
+	Version 3.24.2 - Cleaned up some SF Dirichlet code. Mainly, this version
+        marks a QDP++ version that has QIO properly working on mesh machines.
+
+08/14/2007 -- Robert Edwards
+	Version 3.24.1 - Some rearrangement in "hadron_contract" routines. Now
+        those regressions work in parallel. This code requires at least 
+        QDP++ version 1.24.3 or greater.
+
+07/17/2007 -- Balint Joo
+	Version 3.24.0 - Loads of I/O related stuff from Robert. Balint had 
+        Clover related improvements including support for bagel_clover
+        on BG/Ls, speed improvements to clover force etc through
+        'cleanup'. Negative Logdets hopefully gone (but not forgotten) as we
+        moved to L^\dag D L inversion of clover term rather than Cholesky. The
+        former can cope with an indefinite matrix (as long as it is
+        invertible) the latter can't.
+
+04/19/2007 -- Robert Edwards
+	Version 3.23.0 - Moved around some monomial files in anticipation of big reorg
+        of Remez and InvertParam groups. New output from hadspec.
+
+05/03/2007 -- Balint Joo
+	Version 3.22.7 - BG/L fixes for BAGEL dslash op (refcounting etc)
+	      New CG-DWF option --enable-cg-dwf-lowmem for a lower memory CG-DWF
+	      New CG option --enable-cg-solver-restart for a single CG restart
+	      RsdCG and MaxCG can be independently speficied by <RsdCGRestart>
+	      and <MaxCGRestart> in the inv Param file. This works by default
+	      for CG-DWF solves and the tags are respected in other CG solvers if
+	      --enable-cg-solver-restart is enabled. Otherwise these XML tags
+	      are ignored.  
+
+27/02/2007 -- Balint Joo
+	Version 3.22.6 - Cleanded out subsets. Regressions pass but needs recent 
+	QDP++ (1.22.0 at least). Merged in Robert's recent changes. Added Schur Preconditioned Space,
+	Central Time preconditioned Wilson Operator.
+
+22/02/2007 -- Balint Joo
+	Version 3.22.5 - Stamp before making subset related changes
+
+18/02/2007 -- Balint Joo
+ 	Added ILU Preconditioned space and  Central Preconditioned Time Wilson And Clover 
+	Actions. Amazingly these actually work.
+
+15/02/2007 -- Balint Joo
+	First cut Unprec Space Central Prec Time Wilson Fermions. Complete with regression tests 
+
+8/02/2007 -- Balint Joo
+	Bug fix for linking: Removed enum_wvfkind files to attic. Unincluded
+	them from  enum_io.h
+
+12/10/2006 -- Balint Joo
+	Version 3.22.1. Bug fix in how MD chronological predictor is reset.
+
+12/10/2006 -- Balint Joo
+	Version 3.22.0. Overhaul of the MD integrator codes. Now recursive. Removed
+        old code.
+
+12/10/2006 -- Robert Edwards
+	Version 3.21.1. Mostly housecleaning. Removed many obsolete source construction 
+        and quark smearing codes and enums. Added a Klein-Gordon operator. 
+
+12/04/2006 -- Robert Edwards
+	Version 3.21.0. Overhauled sequential source construction. Now have loads
+        of working derivative sources. New regression tests that cross check the
+        sequential propagator via the tie-back test and compares to a 2-pt at
+        the sink. Standardized propagator headers - now have fixed structs and
+        not the floating xml stuff.
+
+11/25/2006 -- Robert Edwards
+	Version 3.20.0. New component integrator codes for HMC. New staggered
+        chroma task chain of  MAKE_SOURCE, PROPAGATOR and SINK_SMEARING .
+        Fixes in NPR task codes.
+
+11/07/2006 -- Robert Edwards
+	Version 3.19.1. NPR code compiles and linked, but not fully tested.
+        Small fix in AVP DWF-cg wrapper to correct cg-counts.
+
+10/31/2006 -- Robert Edwards
+	Version 3.19.0. Split apart the fermact.h file into lots of
+        separate bits to make it easier to manage. Split up the linearop.h
+        file more as well. Split up and rearranged the tprec_linop.h files for
+        the anticipated new time-preconditioning. Added some new functionality
+        here.  For neatness sake, moved and renamed all the "prec_*" files
+        (which are specific to 4d even-odd preconditioning) to "eoprec_*"
+        filenames. Start of some new inline measurements not yet turned on.
+
+10/31/2006 -- Robert Edwards
+	Version 3.18.0. New inline measurements Qll by K. Orginos.
+
+10/14/2006 -- Robert Edwards
+	Version 3.17.0. Changes in BuildingBlocks (D. Renner, K. Orginos)
+        to support time reversal and translation of source location. Removed
+        inline_spectrum and inline_spectrumOct - superceded by inline_hadspec.
+        Reset inline_propagator version to 9. Had to regenerate lots of
+        regression tests. Removed old style restart support - now done down
+        inside the system solvers.
+        
+10/11/2006 -- Robert Edwards
+	Version 3.16.1. Small fix in hadron_seqsource to make gcc4 happy.
+
+10/10/2006 -- Robert Edwards
+	Version 3.16.0. Change in seqsource construction. Now pass in full 
+        propagator headers as well as props. For baryons, now compensate
+        for time-ordering of source and sink baryons as well as the
+        spurious phase from a quark source not at the spatial origin.
+
+10/10/2006 -- Robert Edwards
+	Version 3.15.1. Small changes in plaq+adj gauge action. Other small
+        regression test cleanups.
+
+09/21/2006 -- Robert Edwards
+	Version 3.15.0. Added new ferm and gauge create state inlines.
+        Changed some inlines to now use the ferm or gauge state, or at
+        least the param group.
+
+09/21/2006 -- Robert Edwards
+	Version 3.14.7. Added a registration in inline_wilslp
+
+09/21/2006 -- Robert Edwards
+	Version 3.14.6. Major housecleaning. Changed all the uses of the
+	registration method to now be **runtime**. The "registerAll()"
+	function is exposed that will register the thingy. There is a
+	private "registered" flag that is initially false and then set
+	to true upon registration done at runtime.
+
+09/18/2006 -- Robert Edwards
+	Version 3.14.5. House cleaning. Split off all gauge states
+	and ferm states to their own gaugestates and fermstates
+	directories. Changed all the paths.
+
+09/14/2006 -- Robert Edwards
+	Version 3.14.0. New chroma/other_libs/cg-dwf package now
+	included. The DWF QpropT routine reworked to use the new package
+	(double prec. SSE). Changed hmc to split output into XMLLOG
+	and XMLDAT.
+
+09/09/2006 -- Robert Edwards
+	Version 3.12.0. First apparently working version of stout force
+	code for HMC.  Rearrangements in stouting for gauge and fermion
+	actions.
+
+08/28/2006 -- Robert Edwards
+	Version 3.11.2. Small but important edge case in stout_fermstate
+	fixed.	Bug fix in SftMom handling in test of zero_offset. Small
+	fix in inline_hadspec allowing optional displacement type
+	field. Retooled all important update routines, stouts, fermacts,
+	etc. to use START_CODE/END_CODE.
+
+08/24/2006 -- Robert Edwards
+	Version 3.11.1. Fixed regression metric in mesons from v3.11.0 .
+	Rearranged mesplq and added measurements of all plaquette planes.
+	Regenerated all regression output since they depend on the
+	plaquette output. Fully converted the block-ing code along with
+	fuzglue, polycor and gluecor.
+
+08/19/2006 -- George T. Fleming
+	Version 3.11.0.  Changed the interface of the slow Fourier
+	transform (SftMom) class to allow for any lattice point to be
+	chosen as the spatial origin.  Previously, this meant that the
+	origin was always implicitly (0,0,0,0), which lead to various
+	phase problems.  One example is 2pt correlation functions between
+	a point source not at the origin and a sink at non-zero momentum:
+	the overall phase depends upon the location of the source.
+	Using the new interface, the phase can be made independent of
+	the location of the source by choosing the origin of the Fourier
+	transform to be the location of the source.  Several things remain
+	to be fixed:  (1) sequential sources at non-zero sink momentum,
+	(2) building blocks with link paths which cross boundaries, (3)
+	baryonic sequential sources where t_source > t_sink, i.e. the
+	boundary is between the source and sink.
+
+08/17/2006 -- Balint Joo
+	Version 3.10.4. Fixed stout fermstate to support smear_dir.
+	New form of purgaug input/output.
+
+08/15/2006 -- Balint Joo
+	Version 3.10.3. Stout Fermstate rides. Reinterpret nontrivialP()
+	flag to mean underlying gauge boundaries are trivial in FermBC-s
+	only (ie still old meaning in GaugeBC-s for now). Stout Fermstate
+	tested for SF, periodic, antiperiodic, and Dirichlet fermion
+	BCs. Twisted Ferm BC_s are not expected to work.
+
+07/27/2006 -- Balint Joo
+	Version 3.10.2. Patches to SSE DWF CG to support double-prec sums.
+	Added more optimized plaq+two_plaq gauge monomial. Added profiling
+	to inline_eigbnds in 5D case.
+
+07/21/2006 -- Balint Joo
+	Version 3.10.1. Added two_plaq monomials.
+
+07/11/2006 -- Robert Edwards
+	Version 3.9.0. Changed interface to the inline WILSLP and MESONSPEC.
+        Turned on  HADRON_SPECTRUM (hadspec). This is a replacement for SPECTRUM.
+
+07/11/2006 -- Robert Edwards
+	Version 3.8.2. More small fixes in wilslp (Wilson loops).
+
+07/06/2006 -- Robert Edwards
+	Version 3.8.1. Fixes in wilslp (Wilson loops).
+
+07/04/2006 -- Robert Edwards
+	Version 3.8.0. Changed FermionAction API to produce system
+        solver classes. No longer have a fixed InvertParam
+	set. Removed old inverter enum and support. Have default creation
+	for inverters to solve M*psi=chi, MdagM*psi=chi, and multi-shift
+	support. Some older files still have explicit calls to CG solver.
+        Converted usage of  source/source_type, fermact, sink/sink_type
+        to using GroupXML_t. Converted all monomials to use GroupXML_t as
+        well.
+
+07/03/2006 -- Robert Edwards
+	Version 3.7.4. 5D Hasenbusch monomial support.
+
+06/18/2006 -- Robert Edwards
+	Version 3.7.3. Bug fix in xml output in task MESONSPEC. Some code cleanups to make
+        various compilers happy.
+
+06/11/2006 -- Robert Edwards
+	Version 3.7.2. Fixed param path in inline_link_smear.
+
+06/11/2006 -- Robert Edwards
+	Version 3.7.1. Bug fixes. Removed all use of linkSmear - it is problematic
+        with the current qdp++.
+
+06/11/2006 -- Robert Edwards
+	Version 3.7.0. Change in quarkProp and SystemSolver interface. 
+	QuarkProp now takes a number of tries (restarts) at calling the qprop routine. 
+	The SystemSolver routines now return a structure of iteration counts and
+	residual. Changed all regression tests to use this new propagator option
+	(version 10).
+
+06/08/2006 -- Robert Edwards
+	Version 3.6.2. Improved memory usage with inline_mesonspec. Some 
+        fixes/improvements in polynomial linops. New parallel regression runners.
+
+05/26/2006 -- Robert Edwards
+	Version 3.6.1. Improved inline_mesonspec. Small bug fix down in
+        64bit SSE wilson dslash (intel_sse_wilson_dslash).
+
+05/24/2006 -- Robert Edwards
+	Version 3.6.0. New format for inline_mesonspec. Added spin insertions. 
+        Overhauled inline_stoch_baryon. Removed quark_smear_first/last from
+        shell source/sink construction/smearing. Now print true residuals
+        in some inversion routines.
+
+05/19/2006 -- Robert Edwards
+	Version 3.5.1. Added no-quark-smearing.
+
+05/17/2006 -- Balint Joo
+	Version 3.4.2. Added Support for configurable testcase runners.
+	Added mpirun_rsh runner. This runner is currently hardwired to 
+	run the tests on qcd6n277 and qcd6n278
+
+05/11/2006 -- Robert Edwards
+	Version 3.4.1. First possibly working version of stoch_baryon task.
+
+05/10/2006 -- Robert Edwards
+	Version 3.4.0. Moved stoch_meson to an inline measurement. Removed stoch_meson.cc
+        mainprog. Made a new stoch_baryon inline measurement - not functional yet.
+        Fixed 5D fermacts to actually call their desired quarkProp routines. They
+        were missing the "const" qualifier at the end of the decl (thus new funcs
+        not seen by virtual funcs).
+
+05/09/2006 -- Robert Edwards
+	Version 3.3.0. Upgraded SHELL_SOURCE,SHELL_SMEARING and SHELL_SINK
+        inline tasks to now take an order of the smearing versus displacements.
+
+04/26/2006 -- Robert Edwards
+	Version 3.2.1. Removed SNARF task - was superceded. Added NERSC reader
+        task. Cleanups and generlization of sfpcac support.
+
+04/18/2006 -- Robert Edwards
+	Version 3.2.0. Switched purgaug to using the gauge action construction.
+        Still somewhat limited, though. Putting legit aniso support in more of the
+        gauge actions - still more is needed.
+
+04/14/2006 -- Robert Edwards
+	Version 3.1.1. Small changes. configure.ac now writes an empty run command for
+        make xcheck.
+
+04/11/2006 -- Robert Edwards
+	Version 3.1.0. Big change on chroma,hmc,purgaug input - one must now always
+        specify the input gauge field on tasks that need it. The default reader
+        has been removed. Added more Schroedinger functional measurements.
+
+04/04/2006 -- Robert Edwards
+	Version 3.0.1. Minor compilation fixes.
+
+04/03/2006 -- Robert Edwards
+	Version 3.0.0. Major overhaul of fermion and gauge action interface. Basically,
+        all fermacts and gaugeacts now carry out  <T,P,Q>  template parameters. These are
+        the fermion type, the "P" - conjugate momenta, and "Q" - generalized coordinates
+        in the sense of Hamilton's equations. The fermbc's have been rationalized to never
+        be over multi1d<T>. The "createState" within the FermionAction is now fixed meaning
+        the "u" fields are now from the coordinate type. There are now "ConnectState" that
+        derive into FermState<T,P,Q> and GaugeState<P,Q>.
+
+03/21/2006 -- Robert Edwards
+	Version 2.15.3. Bug fix, or rather new addition to funcmap. Changed all
+        IO funcmaps to disambiguate them and not pile onto the same funcmap!!!
+
+03/21/2006 -- Robert Edwards
+	Version 2.15.2. Bug fixes in new derivative displacements. Changed around
+        output regression tests. Some cleanups in IO.
+
+03/21/2006 -- Robert Edwards
+	Version 2.15.1. Removed use of overlap_state from various 5d fermacts
+        since it is not used. Added more regression tests. Cleaned out some
+        old input files.
+
+03/20/2006 -- Robert Edwards
+	Version 2.15.0. Major change of inline suite. There is no longer a gauge field
+        passed into the measurements. Instead, tasks must read a gauge field. By default,
+        they all will try to read a "default_gauge_field" buffer placed there by the
+        main program. With this change, any task can smear a gauge field and hand
+        that to the next task for use instead of having to write the config, exiting,
+        and restarting.
+
+03/16/2006 -- Robert Edwards
+	Version 2.14.0. Major overhaul in GaugeBC's and FermBC's . New initial
+        support for Schroedinger functional BC's. The GaugeBC's seem to work
+        under HMC (at least energy is conserved). Carried over BC's known under
+        SZIN. However, the FermBC's don't conserve energy yet. This is understood -
+        the LinOP.deriv() functions do not know the BC's hence can't enforce
+        them - only important to HMC. This needs more work.
+
+03/06/2006 -- Robert Edwards
+	Version 2.13.4. Backed out changes to clover with external field. It's
+        breaking something but passes regression test.
+
+03/06/2006 -- Robert Edwards
+	Version 2.13.3. Changes to mesonspec code.
+
+03/02/2006 -- Robert Edwards
+	Version 2.13.2. Added new partial wall source. More regression tests. Added
+        flop counts on clover. Start of new simplistic (minimal) meson and future
+        baryon spectroscopy.
+
+02/27/2006 -- Robert Edwards
+	Version 2.13.1. Some mods in supporting staggered spectrum as an inline.
+        Some changes by Alistair Hart via Craig McNeile to fuzzed wilson loops.
+        New HMC integrator support by Carsten Urbach.
+
+02/25/2006 -- Robert Edwards
+	Version 2.13.0. Reorg of the fermbcs and gaugebcs. Now putting in 
+        Schroedinger functional.
+
+02/25/2006 -- Robert Edwards
+	Version 2.12.1. Small cleanups before reorg of fermbc and gaugebc.
+        New monomials for clover.
+
+02/23/2006 -- Balint Joo & Thomas Streuer
+        Version 2.12.0. MultiMass overlap and eigenvector projection. 
+        Inline Ritz measurement. Some XML magic needed in writing the 
+        multiple props. For this reason	we now need qdp1-20-1.
+
+02/21/2006 -- Robert Edwards
+	Version 2.11.0. Yet another overhaul. This time, the idea of "displacement"
+        in make_source and sink_smear has been generalized to another factory generated
+        object. Now have lots of derivative things that are "displacements" of a source
+        or sink. More regression tests. New staggered spectrum regression tests and code.
+
+02/16/2006 -- Robert Edwards
+	Version 2.10.1. Removed chroma_config.h from chromabase.h and instead only
+        include it in routines that require it. Thus, recompilations are drastically
+        lowered upon changing versions. Added timing to SSE DWF CG.
+
+02/16/2006 -- Robert Edwards
+	Version 2.10.0. Changed naming scheme for Monomials. The fermact is no longer
+        in the run-time monomial name.
+
+02/16/2006 -- Robert Edwards
+	Version 2.9.2. Preconditioned clover monomials and logdet monomials now 
+        working. More regression tests for t_leapfrog.
+
+02/15/2006 -- Robert Edwards
+	Version 2.9.1. New clover bits. New sequential sources.
+
+02/10/2006 -- Robert Edwards
+	Version 2.9.0. Overhauls of fermion action classes and monomials. More to
+        go. Overhauled sequential source and morphed into an object factory. More
+        seqsources coming. Added start of polynomial preconditioning monomials.
+
+01/03/2006 -- Robert Edwards
+	Version 2.8.2. Fixed clover builds and turned back on.
+
+01/03/2006 -- Balint Joo
+	Version 2.8.1. Removed clover support temporarily till build problems
+        sorted. Added Hasenbusch 4d monomial support.
+
+01/01/2006 -- Robert Edwards
+	Version 2.8.0. New clover fermion support. Added altivec dwf support.
+
+12/26/2005 -- Robert Edwards
+	Version 2.7.4. Some fixes in barhqhq - used by spectrumOct.
+
+12/25/2005 -- Robert Edwards
+	Version 2.7.3. Updated some regression tests. Added a few more.
+
+12/25/2005 -- Robert Edwards
+	Version 2.7.2. Updated baryon spectrum codes and seqsources to abstract away
+        spin matrices and functionality into small functions.
+
+12/20/2005 -- Robert Edwards
+	Version 2.7.1. Small changes for regression support. Fixed little things.
+
+12/18/2005 -- Robert Edwards
+	Version 2.7.0. Overhauled how aniso is done - pushed it down into the 
+        Wilson-esque dslashes. New clover support. Most importantly, start of new
+        rigourous regression test system.
+
+12/18/2005 -- Robert Edwards
+	Version 2.6.1. Updated many regression tests to now use a new WEAK_FIELD
+        instead of using the SZIN chroma/tests/test_purgaug.cfg1   config.
+
+12/14/2005 -- Robert Edwards
+	Version 2.6.0. Changed FermionAction (fermact.h) interface to use a
+        quarkSpinType instead of a nonRelProp. Now, there can be FULL,UPPER,LOWER
+        quark prop calculations.
+
+12/08/2005 -- Robert Edwards
+	Version 2.5.5. Small cleanups to make gcc4.0 happy.
+
+11/30/2005 -- Robert Edwards
+	Version 2.5.4. Renamed PropSource_t and PropSink_t to PropSourceConst_t and
+        PropSinkSmear_t. Added new PropSourceSmear_t . Updates of stochastic codes.
+
+11/30/2005 -- Robert Edwards
+	Version 2.5.3. Minutae.
+
+11/20/2005 -- Robert Edwards
+	Version 2.5.2. Bug fixes. Hyp_smear3d didn't set the time link correctly.
+        Fixed stout smearing when called from quark smearing - otherwise it was
+        fine. Added LINK_SMEAR inline to replace all the separate inlines.
+
+11/20/2005 -- Robert Edwards
+	Version 2.5.1. Some library routines require qdp-1.18.X . Rearranged diluted
+        source construction.
+
+11/20/2005 -- Robert Edwards
+	Version 2.5.0. Some new main programs require qdp-1.18.X . The features are
+        new binary ops on Seeds.
+
+11/16/2005 -- Robert Edwards
+	Version 2.4.3. Changed names in smearing and source/sink constructions.
+
+11/08/2005 -- Robert Edwards
+	Version 2.4.2. Some new sources.
+
+11/08/2005 -- Robert Edwards
+	Version 2.4.1. Small changes to source and sink smearing to get it to compile
+        on different platforms.
+
+11/08/2005 -- Robert Edwards
+	Version 2.4.0. Overhauled source mechanisms. Now have classes and factories
+        for quark source construction, quark source smearing, quark sink smearing,
+        quark smearing generically, and link smearing. MAKE_SOURCE and SINK_SMEAR
+        now use these  source_construction, and sink_smearing, resp.
+
+11/08/2005 -- Robert Edwards
+	Version 2.3.6. Last changes and additions before move to new source
+        mechanism.
+
+11/04/2005 -- Robert Edwards
+	Version 2.3.5. Version using new blas routines suitable for twisted-mass ferms
+        from qdp. Some new IO minutae.
+
+11/02/2005 -- Robert Edwards
+	Version 2.3.4. Tiny changes.
+
+10/25/2005 -- Robert Edwards
+	Version 2.3.3. Some housecleaning. Moved some files from hadron to sources.
+        Added flop counts for 4D CGNE. Removed some spurious "const" from linearop.h .
+
+10/25/2005 -- Robert Edwards
+	Version 2.3.2. Last tweaks before moving around files.
+
+10/24/2005 -- Robert Edwards
+	Version 2.3.1. Commented out some unused inline stuff.
+
+10/24/2005 -- Robert Edwards
+	Version 2.3.0. New noisy sources in inline_make_source and
+
+10/24/2005 -- Robert Edwards
+	Version 2.2.3. Added PARTFILE to qdp_volfmt string-to-enum map. Added call of
+        fermbc aggregator in fermacts.
+
+10/18/2005 -- Robert Edwards
+	Version 2.2.2. Minor tweaks.
+
+10/12/2005 -- Robert Edwards
+	Version 2.2.1. Tightened some QDP file checks. Added updating of xml
+        from gauge_startup in cases where no files read.
+
+09/29/2005 -- Robert Edwards
+	Version 2.2.0. Stout support added to HMC.
+
+09/29/2005 -- Robert Edwards
+	Version 2.1.0. Building blocks moved to version 3. 
+
+09/26/2005 -- Robert Edwards
+	Version 2.0.4. Added flavor label to inline_building_blocks.
+
+09/26/2005 -- Robert Edwards
+	Version 2.0.3. Some cleanups in the inline IO codes.
+
+09/26/2005 -- Robert Edwards
+	Version 2.0.2. Commented problematic conversion codes in QIO inline reader/writers
+        for now.
+
+09/26/2005 -- Robert Edwards
+	Version 2.0.1. Fixed paths in chroma/tests/chroma . Fixed up seqsource
+        conventions.
+
+09/25/2005 -- Robert Edwards
+	Version 2.0.beta. MAJOR UPGRADE! Many main progs vanish. New emphasis on inline
+        measurements. New regression tests in  chroma/tests/chroma/* that mirror the
+        chroma/lib/meas/inline/*  directories.
+
+09/23/2005 -- Robert Edwards
+	Version 1.24.1. More updates of IO inlines.
+
+09/23/2005 -- Robert Edwards
+	Version 1.24.0. Lots of new staggered measurements. New IO inline routines.
+
+09/13/2005 -- Robert Edwards
+	Version 1.23.11. Fixes to lib/Makefile.am to solve install build problems.
+
+09/06/2005 -- Robert Edwards
+	Version 1.23.10. New staggered meson spectrum code.
+
+08/31/2005 -- Robert Edwards
+	Version 1.23.9. Added qqbar and mescomp support.
+
+08/27/2005 -- Robert Edwards
+	Version 1.23.8. Added v4 back to prop reads. New staggered spectrum
+        measurements.
+
+08/23/2005 -- Robert Edwards
+	Version 1.23.7. Added timings to inline measurements around IO routines.
+
+08/23/2005 -- Robert Edwards
+	Version 1.23.6. Cosmetic changes before some production work. Corresponds
+        to using QDP++ 1.15.2 .
+
+08/18/2005 -- Robert Edwards
+	Version 1.23.5. Added hypsmear4d and smearing stuff to inline measurements.
+
+07/29/2005 -- Robert Edwards
+	Version 1.23.4. Added new info to building-blocks footer - new version 2.
+
+07/20/2005 -- Robert Edwards
+	Version 1.23.3. Fixes to barseqsrc routines to fix malfeature/conventions of 
+        quarkContract12. 
+
+07/19/2005 -- Robert Edwards
+	Version 1.23.2. New inline multi-mass propagator routine. Chroma.cc
+        now takes RNG seed.
+
+07/13/2005 -- Robert Edwards
+	Version 1.23.1. New flopcounts in minvcg codes.
+
+06/29/2005 -- Robert Edwards
+	Version 1.23.0. Major changes by Balint Joo in bagel lib, new flop counts,
+        new memory hints from QDP++. Most of these aimed at QCDOC.
+
+06/14/2005 -- Balint Joo
+	Version 1.22.3. Fixed various things in the build system.
+        GMP is now enabled with --with-gmp=<DIR>. DIR is optional.
+	If not given one can use env variables GMP_CXXFLAGS, GMP_LDFLAGS
+	and GMP_LIBS. If these environment variables are empty, GMP_LIBS
+	will be defined as -lgmp assuming that the GMP is in a standard
+	location. Not specifying --with-gmp disables building the GMP
+	remez code
+
+	The BAGEL WILSON DSLASH is now enabled with --with-bagel-wilson-dslash=DIR. DIR is optional. If not given it falls back to environment variables
+        BAGEL_WILSON_DSLASH_CXXFLAGS, BAGEL_WILSON_DSLASH_LDFLAGS, BAGEL_WILSON_DSLASH_LIBS. Not giving the --with-bagel-wilson-dslash option disables the
+use of the bagel wilson dslash
+
+05/28/2005 -- Robert Edwards
+
+	Version 1.22.2. Moved dwf_linop_base to dwflike_linop_base. Made
+        the 1-flav Monomials also support 1 & 3 as a special case of more
+        generic fractional flavor.
+
+05/27/2005 -- Balint Joo
+
+	Version 1.22.1. Cleaned up prec_ovlap_contfrac5d_linop codes.
+
+05/27/2005 -- Balint Joo
+
+	Version 1.22.0. Added new --enable-opt-cfz-linop option. Now
+        have some optimized version of prec_ovlap_contfrac5d_linop.
+
+05/27/2005 -- Balint Joo
+
+	Version 1.21.6. Changed integrators to use num-steps instead of
+        step-size.
+
+05/19/2005 -- Robert Edwards
+
+	Version 1.21.5. Mods in CFZ codes. New HMC integrators.
+
+05/04/2005 -- Robert Edwards
+
+	Version 1.21.4. New z2 sources. New HMC monomial control in 1-flavor.
+
+04/25/2005 -- Robert Edwards
+
+	Version 1.21.3. Added qpropqio for chroma.
+
+04/25/2005 -- Robert Edwards
+
+	Version 1.21.2. BJ added OvExt code and factories. Small cleanups and
+        adding xml_file support to inline measurements.
+
+04/17/2005 -- Robert Edwards
+
+	Version 1.21.1. Changed one-flavor HMC monomial codes to support
+        nth-rootery.
+
+04/17/2005 -- Robert Edwards
+
+	Version 1.21.0. Moved most mainprogs/main/*.cc codes to be wrappers
+        over inline measurements. Inline codes significantly extended.
+
+04/06/2005 -- Balint Joo
+
+	Version 1.20.6. Small changes before major update of mainprogs.
+
+04/02/2005 -- Balint Joo
+
+	Version 1.20.5. Optimizations to the diag bits of the DWF,NEF variants
+
+03/22/2005 -- Robert Edwards
+
+	Version 1.20.4. Added  mainprogs/main/qpropqio.cc
+
+03/21/2005 -- Robert Edwards
+
+	Version 1.20.3. No major changes, but an improvement in qdp++ to the 
+        sumMulti to now use a QMP global sum on an array instead of individual
+        sums.
+
+03/14/2005 -- Robert Edwards
+
+	Version 1.20.2. Fixed Building-Blocks stuff (ExampleBuildingBlocks)
+        to now do BB for each seqprop instead of all together. This
+        helps get around the max file-descriptor problem.
+
+03/12/2005 -- Robert Edwards
+
+	Version 1.20.1. Changed ExampleBuildingBlocks to use an XML
+        interface.
+
+03/06/2005 -- Robert Edwards
+
+	Version 1.20.0. Overhauled sequential source construction.
+        Eliminated "magic numbers" for sources. Now all string 
+        driven. Added force measurements to HMC.
+
+03/06/2005 -- Robert Edwards
+
+	Version 1.19.14. Bug fix in SzinGauge_t constructor. This was
+        introduced when the initHeader's were removed in favor of 
+        constructors.
+
+03/02/2005 -- Robert Edwards
+
+	Version 1.19.13. Bug fix in ZoloNef FermAct codes. Only showed 
+        up in Zolo case. This bug was introduced 2/14/05 - now squashed.
+
+03/02/2005 -- Robert Edwards
+
+	Version 1.19.12. Argh - bug fix. Resize's in linop array routines
+        caused problems. Updated command-line args to all main programs.
+
+02/27/2005 -- Robert Edwards
+
+	Version 1.19.11. Small code simplifications.
+
+02/27/2005 -- Robert Edwards
+
+	Version 1.19.10. 5D versions of Chrono predictor in place.
+        Changed input format of sink_smear and qqq_w to take arrays.
+
+02/23/2005 -- Balint Joo
+
+	Version 1.19.9. Upgrade again of Chrono predictors. Seems to
+        work for 4D. Need 5D.
+
+02/23/2005 -- Robert Edwards
+
+	Version 1.19.8. Updated interface for Chrono predictors.  Start of
+	aniso support in GaugeActs. Split off some structs to separate
+	files to thin-out file dependencies.
+
+02/21/2005 -- Robert Edwards
+
+	Version 1.19.7. Added aniso support for DWF and SSE DWF.
+        Changed all initHeader-s to appropriate default constructors
+        for the structs. Changed quarkProp routines to take SystemSolver
+        instead of FermAct.
+
+02/21/2005 -- Robert Edwards
+
+	Version 1.19.6. Moved stock mainprogs to bin_PROGRAMS. They
+        are now installed.
+
+02/16/2005 -- Robert Edwards
+
+	Version 1.19.5. Added hybrid meson stuff to spectrum_w. 
+
+02/13/2005 -- Robert Edwards
+
+	Version 1.19.4. Changed/fixed all ContFrac codes to have a +OverMass 
+        sign convention. Changed Zolo fermacts to take ApproxMin/Max from 
+        FermionAction group. 
+
+02/10/2005 -- Robert Edwards
+
+	Version 1.19.3. Fixed ritz code to work over subsets.
+
+02/09/2005 -- Robert Edwards
+
+	Version 1.19.2. Small bug fixes. Split off hypsmear.cc
+
+02/06/2005 -- Robert Edwards
+
+	Version 1.19.1. Added a bunch of aggregators to simplify
+        linkage stuff.
+
+02/02/2005 -- Robert Edwards
+
+	Version 1.19.0. One flavor RHMC support now in place.
+        One currently needs a  --enable-gmp  flag on configure
+        to hook in GNU GMP.
+
+02/02/2005 -- Robert Edwards
+
+	Version 1.18.9. Added missing files to lib/Makefile.am .
+        Upgraded Remez codes. New configure switch for GMP.
+
+02/01/2005 -- Robert Edwards
+
+	Version 1.18.8. Cosmetic changes. Code sync.
+
+01/31/2005 -- Robert Edwards
+
+	Version 1.18.7. Fixed output names in proginfo to produce valid XML !
+
+01/31/2005 -- Robert Edwards
+
+	Version 1.18.6. Fixes in HT fermact codes.
+
+01/27/2005 -- Robert Edwards
+
+	Version 1.18.5. Split abs_monomial into separate
+        two flavor and new one flavor rational support.
+
+01/16/2005 -- Robert Edwards
+
+	Version 1.18.4. Mainprogs including HMC finally appears
+        stable after all the XML singleton instances, etc. More
+        Chrono predictors.
+
+01/16/2005 -- Robert Edwards
+
+	Version 1.18.3. Added more 5D monomials. Added Pauli-Villars
+        for contfrac5d.
+
+01/15/2005 -- Robert Edwards
+
+	Version 1.18.2. Fixed norms on new gaugeacts. Seem okay.
+
+01/15/2005 -- Balint Joo
+
+	Version 1.18.1. Added missing include files to lib/Makefile.am
+        Fixed norms on new gaugeacts. Seem okay.
+
+01/14/2005 -- Robert Edwards
+
+	Version 1.18.0. Major housecleaning. All lib routines now in
+        Chroma namespace. Removed all "using" directives in lib routines.
+        The QDP namespace is however, "used" in chromabase.h
+
+01/14/2005 -- Robert Edwards
+
+	Version 1.17.1. Some code cleanups/namespaces. Logging in HMC.
+        Merged in Al Hart's changes.
+
+01/13/2005 -- Balint Joo
+
+	Version 1.17.0. Major reorg of molecdyn dir. Files split and
+        rearranged. Basic HMC structure in place - still some polishing.
+        Gauge acts like plaq,rect,pg seem to all work.
+
+01/12/2005 -- Robert Edwards
+
+	Version 1.16.1. Added new gauge actions (wrappers over plaq,rect,pg).
+
+01/12/2005 -- Robert Edwards
+
+	Version 1.16.0. Rearranged actions/gauge directories.
+
+01/12/2005 -- Robert Edwards
+
+	Version 1.15.5. More hardening of HMC. Some bug fixes in gaugeacts.
+
+01/11/2005 -- Robert Edwards
+
+	Version 1.15.4. Added plaq,rect,pg gaugeacts. Made gauge monomial
+        class generic.
+
+01/11/2005 -- Robert Edwards
+
+	Version 1.15.3. More hardeninng of HMC. Chrono prediction added.
+        Added ParWilson (Twisted Mass Wilson) support within HMC.
+
+01/10/2005 -- Robert Edwards
+
+	Version 1.15.2. Changed HMC monomial routines to more generic
+        method.
+
+01/10/2005 -- Robert Edwards
+
+	Version 1.15.1. Some more HMC suport. Small code cleanups
+        to make code pass -Wall.
+
+01/07/2005 -- Robert Edwards
+
+	Version 1.15.0. Added SSE qpropT for DWF. 
+
+01/06/2005 -- Robert Edwards
+
+	Version 1.14.3. HMC support appears fixed.
+
+01/04/2005 -- Robert Edwards
+
+	Version 1.14.2. Added linOpPV back into FermAct5D hierachy.
+        Rearranged and extended Monomial support which now has a 4D
+        and 5D branch. Abstracted derivative/refresh codes. Added 
+        new monomials.
+
+01/04/2005 -- Robert Edwards
+
+	Version 1.14.1. Small changes in derivative support.
+
+01/01/2005 -- Robert Edwards
+
+	Version 1.14.0. Another major overhaul of FermionAction
+        classes. The concept of derivative is pushed up higher in
+        the tree. All fermacts now have some default derivative
+        support (possibly nothing more than Not Implemented message).
+        Qprop and QpropT now produced via factory functions ala
+        LinearOperators. Now have a SystemSolver class - can be used
+        for all solvers.
+
+01/01/2005 -- Robert Edwards
+
+	Version 1.13.1. HMC now runs, but still needs work.
+
+12/29/2004 -- Robert Edwards
+
+	Version 1.13.0. Rearranged top-level FermionAction support.
+        Consolidated FermFactories.
+
+12/29/2004 -- Robert Edwards
+
+	Version 1.12.1. HMC changes and support for gauge and
+        ferm Monomials.
+
+12/23/2004 -- Robert Edwards
+
+	Version 1.12.0. Now have a FermBC factory/foundries. Removed 
+        explicit FermBC args from FermAct factories and now the creation
+        of the FermBC is done within the construction of the FermAct.
+        Similarly, HMC will create FermActs as needed. The old "boundary"
+        within propagator.cc input is now shoved into the FermionAction
+        xml.
+
+12/23/2004 -- Robert Edwards
+
+	Version 1.11.3. More HMC changes.
+
+12/22/2004 -- Robert Edwards
+
+	Version 1.11.2. New HMC support. First versions of Monomials.
+
+12/15/2004 -- Robert Edwards
+
+	Version 1.11.1. Fixed chroma_config (for libs). Moved other routines
+        to chroma namespace. Added more to EXTRA_DIST .
+
+12/12/2004 -- Robert Edwards
+
+	Version 1.11.0. Major overhaul of fermact and linearop class
+        structure. Removed dsdu stuff - now in linops. Introduced
+        levels of fermacts (base or not) that have derivs. All low
+        level fermacts/linops have an additional template param for
+        type of conjugate momenta in derivative. Made all fermacts and
+        linops within chroma namespace.
+
+12/09/2004 -- Robert Edwards
+
+	Version 1.10.2. Changed prec. DWF-base to have linOp4D only
+        use prec. 5D operators.
+
+12/09/2004 -- Robert Edwards
+
+	Version 1.10.1. Small fixes/tweaks
+
+12/09/2004 -- Robert Edwards
+
+	Version 1.10.0. Overhaul of DWF-like class structure.
+
+12/06/2004 -- Robert Edwards
+
+	Version 1.9.2. Changes to staggered stuff. Start of xmldiff checks.
+
+11/22/2004 -- Robert Edwards
+
+	Version 1.9.1. Removed last of all Namelist-isms. 
+
+11/22/2004 -- Robert Edwards
+
+	Version 1.9.0. Big merge of Wilson and Staggered builds - now all
+        the same. Cleaned up automake files so make distcheck  should work.
+
+11/20/2004 -- Robert Edwards
+
+	Version 1.8.2. More changes within Zolo Ferm support. 
+        Changed staggered files to use LatticeStaggeredFermion
+
+10/21/2004 -- Robert Edwards
+
+	Version 1.8.1. More updates. First start of Zolo in NEF.
+
+10/18/2004 -- Robert Edwards
+
+	Version 1.8.0. First version. Changed to support QMP-2. New fermion action
+        initialization. New support for variable initialization.
+
+09/28/2004 -- Balint
+
+     -- ZolotarevStateInfo has been renamed to OverlapStateInfo
+	( and the previous empty OverlapStateInfo base class has been removed)
+
+     -- I have added the state_info field to Propagator_Input_t 
+	  as a standard string. I had it in ChromaProp_t first but I 
+	  believe it should not be part of the <Param> </Param>
+	  tagset but rather live at the same level as Cfg_t in the
+	  top level applications. Look in propagator.cc to see how 
+	  I manage it. Essentially I do this (propagator.cc line 84):
+
+    // Read any auxiliary state information
+    // if it exists
+    if( inputtop.count("StateInfo") == 1 ) {
+      XMLReader xml_state_info(inputtop, "StateInfo");
+      std::ostringstream os;
+      xml_state_info.print(os);
+      input.stateInfo = os.str();
+    }
+    else {
+    // Write an empty <?xml ... ><StateInfo/> document if not 
+    // found 
+      XMLBufferWriter s_i_xml;
+      push(s_i_xml, "StateInfo");
+      pop(s_i_xml);
+      input.stateInfo = s_i_xml.str();
+    }
+
+    I have added dummy createState() functions to the various
+    fermacts that read from an XML containing StateInfo. Apart
+    from the overlap, these createState()-s just ignore
+    the XML, but this virtual func could be a good hook for you
+    if you add StateInfo to some ZolotarevCoeff-ed DWF fermacts.
+    In fact, if you just write these, they'll be picked up appropriately
+    by propagator...
+
+    A sample usage of state info is in 
+	chroma/tests/propagator/propagator_zolo4d_v6.xml.in
+
+    -- As agreed, I have removed backward compatibility with 
+    SZIN - type vectors in createOverlapState() -- now just 
+    uses my evecs.
+
+    -- I have written factory functions for creating OverlapConnectState-s
+    in overlap_state.h overlap_state.cc. I originally wrote these
+    as templated funcs, but then I couldn't shove them into the .cc file
+    - they'd needed to have stayed in the .h file where the prototypes
+    are defined. So I did similar things to the Inverter functions. 
+    I wrote out the "specialisations" in the .h file and wrapped a templated
+    version in the .cc. Your fermact's createState()-s can just dive on these
+    see ovlap_partfrac_4d_fermact_w.[h,cc]. The issue of 4D and 5D BC's is
+    hacked around as discussed:
+
+  	i) The aux ferm act gets trivial BC-s. This doesn't matter as 
+	   we never use them. We always use the BC-s of the parent.
+       ii) the createOverlapState() function is passed a linOp which
+	   the caller FermAct constructs. AuxMass is therefore no longer
+	   passed
+       iii) the createOverlapState() function creates a SimpleConnectState
+           internally to call the passed linOp with, after applying
+	   the modifyU() function of the passed FermBC
+
+    -- Zolotarev4DFermAct and Zolotarev5DFermActArray have been renamed:
+     as  OverlapPartFrac4DFermAct
+     and 
+	 UnprecOverlapContFrac5DFermActArray
+
+     and put in ovlap_partfrac4d_fermact_w.[h,cc] 
+         and    unprec_ovlap_contfrac4d_fermact_array_w.[h,cc] 
+
+    the zolotarev5d_linop_array_w.[h,cc] is still there but will
+    also be renamed real soon now.  
+
+    -- I have removed the double mappings for backward compatibility
+    ZOLOTAREV_4D and ZOLOTAREV_5D are dead. Now you need to specify
+    something like:
+
+  <FermionAction>
+    <FermAct>OVERLAP_PARTIAL_FRACTION_4D</FermAct>
+    <IsChiral>true</IsChiral>
+    <ApproximationType>ZOLOTAREV</ApproximationType>
+    <Mass>0.04</Mass>
+    <RatPolyDeg>17</RatPolyDeg>
+    <InnerSolve>
+      <MaxCG>1000</MaxCG>
+      <RsdCG>1.0e-7</RsdCG>
+      <ReorthFreq>20</ReorthFreq>
+    </InnerSolve>
+    <AuxFermAct>
+      <FermAct>UNPRECONDITIONED_WILSON</FermAct>
+      <Mass>-1.4</Mass>
+    </AuxFermAct>
+  </FermionAction>
+
+   Other new FermActs:
+
+ 	"UNPRECONDITIONED_OVERLAP_CONTINUED_FRACTION_5D"
+and soon "OVERLAP_CONTINUED_FRACTION_5D" (which will be preconditioned)
+
+    
+    ApproximationType can be "ZOLOTAREV" or "TANH" for now.
+    Robert feel free to add your own here if you want. 
+
+	io/enum_io/enum_coeffs_io.[h,cc]
+	io/enum_io/enum_fermacttype_io.[h,cc]
+
+    I have removed therefore the old XML input files from the repository
+    and added in the new ones.
+
+    -- Approximation type can now also be TANH with the following caveats:
+
+	i) rescaling: I am still not clear on this. I may not need
+	to do this at all or I may need to do it the same way 
+	as done in the ZOLO case. I'll ask Tony.
+	
+	ii) projection: I saw in your paper that in the Borici 
+	(TANH) case, the EigValFunc is not signum but in fact 
+	the polar approximation: \epsilon_{Ls/2}
+
+
+    -- Also note from the above XML, that as agreed, I pushed the IsChiral
+    to be a user supplied parameter. So that if we have a bad approximation
+    for Zolotarev we can set it to false. Likewise if we have a supremely
+    high order tanh approximation with projection so that we are effectively
+    chiral then you can set it to true.
+
+    -- fermact_paramio.h fermact_paramio.cc zolotarev4d_fermact_paramio.h
+       zolotarev4d_fermact_paramio.cc are GONE (removed from CVS)
+       zolotarev5d_fermact_paramio.[h,cc] are still around but 
+       will be gone real soon now.
+
+
+08/30/2004 -- Robert Edwards
+
+	Version 1.7.4. Really, these are the last changes before 1.8
+
+08/30/2004 -- Robert Edwards
+
+	Version 1.7.3. Last changes before 1.8
+
+08/20/2004 -- Robert Edwards
+
+	Version 1.7.2. Changed wall-FF codes to allow wall-source.
+
+08/20/2004 -- Robert Edwards
+
+	Version 1.7.1. Some more hmc support.
+
+08/01/2004 -- Robert Edwards
+
+	Version 1.7.0. Added SSE_DWF_CG support.
+
+07/27/2004 -- Robert Edwards
+
+	Version 1.6.2. Changed START/END_CODE() to not have first arg.
+
+07/27/2004 -- Robert Edwards
+
+	Version 1.6.1. Changed sink_smear2_w.{h,cc} to fermion indep.
+        sink_smear2.{h,cc}. Other small lib/Makefile.am fixes.
+
+07/26/2004 -- Robert Edwards
+
+	Version 1.6.0. New HMC support. New profiling support.
+	Changed mem. layout to remove PDWVector layer - only matters
+	for SSE routines. Removed completely all uses, decls, files
+	with LatticeDWFermion.
+
+07/13/2004 -- Robert Edwards
+
+	Version 1.5.20. Final version before minor release of QDP breaks old
+        usage of LatticeDWFermion.
+
+06/08/2004 -- Robert Edwards
+
+	Version 1.5.19. Modifed Wallformfac mainprog to write binary.
+
+06/08/2004 -- Robert Edwards
+
+	Version 1.5.18. Wallformfac codes debugged to some
+	extent. Added new delta operators in baryons_w.cc .
+	Time for major tests.
+
+05/28/2004 -- Robert Edwards
+
+	Version 1.5.17. Changed Coulomb gfixing to use gauge transf matrices.
+        Put relaxed solvers in for overlap and into things like quarkProp4
+
+05/27/2004 -- Robert Edwards
+
+	Version 1.5.16. Fixed SciDAC gauge IO to always read/write in
+        single prec. Fixed initialization in multi-mass quark prop.
+
+05/25/2004 -- Robert Edwards
+
+	Version 1.5.15. Fixed KYU qprop readers to correct basis.
+        Completed insertion of GMRES and relaxed codes. Also inner
+        "preconditioned" versions.
+
+05/19/2004 -- Robert Edwards
+
+	Version 1.5.14. Relaxed solvers for overlap appear to work. Now have
+        BiCG codes, SUMR, CG, etc. and multi-mass variants. Fixed KYU qprop
+        reader.
+
+05/13/2004 -- Robert Edwards
+
+	Version 1.5.13. QQQ program now can output in Dirac or Degrand-Rossi
+        basis. Made basis rotation more public.
+
+05/13/2004 -- Balint Joo
+
+	Version 1.5.12. Working multi-mass SUMR code.
+
+05/12/2004 -- Robert Edwards
+
+	Version 1.5.11. Tidying in the sequential source/prop reader/writers.
+        Working SUMR codes. Overlap under development to use new tricks.
+
+05/04/2004 -- Balint Joo
+
+	Version 1.5.10. Overlap double pass appears okay.
+
+05/02/2004 -- Robert Edwards
+
+	Version 1.5.9. Qproptransf codes in place. Now have completed
+	conversion to new seqsource/propagator qprop format.
+
+04/29/2004 -- Robert Edwards
+
+	Version 1.5.8. Wall-formfactor code appears to work and agree
+	with bar3ptfn code with a wall sink.
+
+04/29/2004 -- Balint Joo
+
+	Version 1.5.7. Changed auto-isms to allow correct installation. Fixed 
+        chroma-config to be useful. Now have a chroma_config.h and internal.h.
+
+04/27/2004 -- Robert Edwards
+
+	Version 1.5.6. Last changes (mostly overlap) before splitup of main codes.
+
+04/23/2004 -- Robert Edwards
+
+	Version 1.5.5. More support for overlap.
+
+04/22/2004 -- Robert Edwards
+
+	Version 1.5.4. BUG FIX in baryon_w.cc . The proton_{4,5,6} were converted
+        incorrectly from szin. 
+        Cleanups in gauge initialization. Overlap support now in propagator codes.
+
+04/21/2004 -- Robert Edwards
+
+	Version 1.5.3. New version of propagator input. New wall-sink
+        formfactor codes. New multi-prop. support.
+
+04/05/2004 -- Robert Edwards
+
+	Version 1.5.2. Start of support for SZINQIO.
+
+04/01/2004 -- Robert Edwards
+
+	Version 1.5.1. Added non-relativistic support to seqprop.
+
+02/22/2004 -- Robert Edwards
+
+	Version 1.5.0. Major change in propagator model in main programs. ONLY
+        support SciDAC format of propagators. Now, the "Param" group on input is the
+        header of some propagator. There are XML and binary parts of propagators
+        (SciDAC format). The XML part is used in subsequent calculations, thus removing
+        potentially erroneous use of input params in calcs.
+        All test files changed to match
+
+02/22/2004 -- Robert Edwards
+
+	Version 1.4.4. Some new programs added. Fixed make_source/propagator/seqprop/spectrum
+        chain of tests to be consistent and give reasonable output. Cross-checked against
+        new (un-committed) XML driven input/output model.
+
+01/27/2004 -- Robert Edwards
+
+	Version 1.4.3. Overhauled SSE Wilson dslash support. New index tables.
+
+01/26/2004 -- Robert Edwards
+
+	Version 1.4.2. More eigenvalue stuff. Tagging pre-release of the
+        new SSE Wilson dslash support.
+
+01/07/2004 -- Robert Edwards
+
+	Version 1.4.1. Functioning Zolotarev code by Balint Joo.
+	Also, added WILSON and STAGGERED build control.
+
+01/01/2004 -- Robert Edwards
+
+	Version 1.4.0. Removed all proxies. Switched to only use Handles
+	(proxies were just glorified handles). Changed fermact factory
+	functions to require a Handle<const ConnectState>  instead of a
+	pointer to a connect state.  Added Fermion and Gauge BC support.
+	Now a new virtual getFermBC in FermAct.  Now, the semantics is
+	the FermAct is responsible for applying the Fermionic BC. All
+	the fermacts changed to pass a FermBC which is then applied
+	to the U fields in createState. This is supplied as a default
+	in createState. 
+        First tentative code for pure gauge heatbath and dyn. ferm. HMC.
+
+12/31/2003 -- Robert Edwards
+
+	Version 1.3.2. More tweaks in fermacts. Added first versions
+        of heatbath and HMC (not working yet).
+        This is a pre-release before major changes to come. The next
+        version changes substantially the fermacts - now gauge and
+        fermion BC are included in the proper way.
+
+12/06/2003 -- Robert Edwards
+
+	Version 1.3.1. Added various gauge fixing routines.
+
+12/02/2003 -- Robert Edwards
+
+	Version 1.3.0. Another overhaul of FermionAction support. Now
+        create and pass around gauge connection state.
+
+12/01/2003 -- Robert Edwards
+
+	Version 1.2.1. Minor tweaks. Pre-release for 1.3.0 .
+
+11/23/2003 -- Robert Edwards
+
+	Version 1.2.0. Overhauled FermionAction and LinearOperator. Added
+        new even-odd preconditioned support.
+
+11/20/2003 -- Robert Edwards
+
+	Version 1.1.4. Switched LinearOperator and FermionAction interfaces to
+        pass what was return type as instead argument to operator() & apply (linop)
+        and dsdu (fermact).
+
+11/20/2003 -- Robert Edwards
+
+	Version 1.1.3. Small tweaks.
+
+11/16/2003 -- Robert Edwards
+
+	Version 1.1.2. Added extended-overlap action and linop.
+
+11/14/2003 -- Robert Edwards
+
+	Version 1.1.1. Rearranged fermact files and made more base classes.
+        Merged separate dsdu and qprop files into corresponding fermact files.
+
+11/14/2003 -- Robert Edwards
+
+	Version 1.1.0. Added array versions of fermacts. Now have functioning
+        unprecondition DWF operator.
+
+10/09/2003 -- Robert Edwards
+
+	Version 1.0.1. Changed all cout/cerr/QDP_info to use QDPIO::cout/cerr.
+
+10/07/2003 -- Robert Edwards
+
+	Version 1.0.0. First major release. Supports sse extensions. Several
+        bits in production. More to come.

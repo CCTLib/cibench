@@ -1,0 +1,8 @@
+#/!bin/bash
+
+export LD_LIBRARY_PATH=../../src
+
+./larson-hoard 10 7 8 10000 1000 1 4 4 >> $HOME/artifact/evaluation/speedup/original/runtime.txt 2> /dev/null 
+
+./larson 10 7 8 10000 1000 1 4 4
+LD_PRELOAD=../../src/libhoard.so ../../benchmarks/larson/larson 10 7 8 10000 1000 1 4 4

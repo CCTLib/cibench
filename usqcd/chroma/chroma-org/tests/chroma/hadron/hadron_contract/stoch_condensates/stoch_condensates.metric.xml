@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<assertions>
+
+<assertion xpath="/chroma/InlineObservables/elem[17]/HadronContract/HadronMeasurements/elem[1]/HadronContractions/elem[16]/Diagnostic/Hadron2Pt/ZeroMom/elem[1]/re" type="double" comparison="relative" tolerance="2.0e-5"/>
+
+</assertions>

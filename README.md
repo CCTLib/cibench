@@ -2,7 +2,7 @@
 
 Welcome to the world of CIBENCH!
 
-Enjoy the collection of 12 benchmarks and their optimization methods, they are:
+Here you can enjoy the collection of 12 benchmarks and their optimization methods, they are:
 
 1. Bzip2-1.0.6
 2. Backprop, 
@@ -37,7 +37,7 @@ To install USQCD Chroma and GSL, please following the guidance inside correspond
 
 Due to the copyright of SPEC Benchmark Suite, we shall not release the code of Hmmer, H264ref and Povray here, please refer to our paper "What Every Scientific Programmer Should Know AboutCompiler Optimizations?" for the detailed optimization methods.
 
-Here we list the inputs we used for your references:
+We list the inputs we used for your references:
 
 For hmmer:
 ```sh

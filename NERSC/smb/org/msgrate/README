@@ -1,1 +1,1 @@
-Please set the path of $(MPICC_INCLUDE) and $(MIPCC_LIBRARY) in the Makefile.
+If you wish to compile msb individually, please have a valid MPI compiler installed and set the paths for $(MPICC_INCLUDE) and $(MIPCC_LIBRARY) in the Makefile.

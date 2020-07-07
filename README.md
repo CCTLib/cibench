@@ -55,6 +55,5 @@ $povray: ./povray SPEC-benchmark-ref.ini
 If you have insights or questions towards CIBENCH please send email to jtan02@email.wm.edu, thanks!
 
 ## Reference:
-Please find following paper for details:
 
 [Jialiang Tan, Shuyin Jiao, Milind Chabbi, and Xu Liu. "What every scientific programmer should know about compiler optimizations?." In Proceedings of the 34th ACM International Conference on Supercomputing, pp. 1-12. 2020.](https://dl.acm.org/doi/abs/10.1145/3392717.3392754)
